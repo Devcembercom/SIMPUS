@@ -63,10 +63,18 @@
         </div>
     </div>
 
-    <livewire:scripts />
+
     <script src="{{ mix ('js/template-app.js') }}"> </script>
     @stack('js')
-
+    @if (Session::has('type'))
+    <script>
+        iziToast.{{ Session::get('type') }}({
+            title: "{{ Session::get('type') }}",
+            message: "{{ Session::get('message')  }}",
+            position: 'bottomRight'
+        });
+    </script>
+    @endif
 </body>
 
 </html>

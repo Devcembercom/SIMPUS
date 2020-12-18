@@ -13,6 +13,7 @@ class DashboardController extends Controller
 
     public function index()
     {
+        session()->flash('type', 'error');
         return view('dashboard');
     }
 }
