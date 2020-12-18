@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="turbolinks-cache-control" content="no-cache">
+    <meta name="turbolinks-visit-control" content="reload">
 
     <title>{{ config('app.name') ?? $title }}</title>
 
@@ -43,7 +45,11 @@
                         </div>
                     </div>
                 </div>
-                {{ $slot ?? '' }}
+                <section class="section">
+                    <div class="section-body">
+                        {{ $slot ?? '' }}
+                    </div>
+                </section>
             </div>
             <footer class="main-footer">
                 <div class="footer-left">
