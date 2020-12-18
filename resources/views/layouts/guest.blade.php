@@ -9,7 +9,7 @@
     <title>{{ config('app.name', 'Library') }}</title>
 
     <!-- General CSS Files -->
-    <link rel="stylesheet" href="{{ asset('assets/guest_template/modules/fontawesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css') }}">
 
     <!-- CSS Libraries -->
     <link href="{{ mix('css/template-guest.css') }}" rel="stylesheet">
