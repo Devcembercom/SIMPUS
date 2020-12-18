@@ -1,65 +1,40 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
-                        @csrf
-
-                        <input type="hidden" name="token" value="{{ $token }}">
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<x-guest-layout>
+    <x-authentication-card>
+        <x-slot name="logo">
+            <x-authentication-card-logo />
+        </x-slot>
+        <x-slot name="title">Reset Password</x-slot>
+        @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
         </div>
-    </div>
-</div>
-@endsection
+        @endif
+        <form method="POST" action="{{ route('password.update') }}">
+            @csrf
+            <input type="hidden" name="token" value="{{ $token }}">
+            <div class="form-group">
+                <x-label for="email">{{ __('Email') }}</x-label>
+                <x-input class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" type="email" id="email"
+                    name="email" value="{{ Request::route('email') ?? old('email') }}" required autofocus />
+                <x-input-error for="email" />
+            </div>
+            <div class="form-group">
+                <x-label for="password" class="control-label">{{ __('Password') }}</x-label>
+                <x-input type="password" class="{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"
+                    tabindex="2" required autocomplete="new-password" />
+                <x-input-error for="password" />
+            </div>
+            <div class="form-group">
+                <x-label for="password" class="control-label">{{ __('Konfirmasi Password') }}</x-label>
+                <x-input type="password" class="{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                    name="password_confirmation" tabindex="2" required autocomplete="new-password" />
+                <x-input-error for="password" />
+            </div>
+            <div class="form-group">
+                <x-button type="submit" class="btn btn-primary btn-block">
+                    {{ __('Atur Ulang Kata Sandi') }}
+                </x-button>
+            </div>
+        </form>
+    </x-authentication-card>
+</x-guest-layout>
