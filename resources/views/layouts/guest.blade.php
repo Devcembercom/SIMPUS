@@ -8,7 +8,7 @@
     <meta name="turbolinks-cache-control" content="no-cache">
     <meta name="turbolinks-visit-control" content="reload">
 
-    <title>{{ config('app.name', 'Library') }}</title>
+    <title>{{ config('app.name', 'Puskesmas') }}</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css') }}">
