@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from demo.getstisla.com/auth-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Apr 2020 11:24:18 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<!-- /Added by HTTrack -->
-
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
@@ -41,35 +36,45 @@
         <section class="section">
             <div class="container mt-5">
                 <div class="row">
-                    <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+                    <div
+                        class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
                         <div class="login-brand">
-                            <img src="{{ asset('assets/modules/component/img/stisla-fill.svg')}}" alt="logo" width="100" class="shadow-light rounded-circle">
+                            <img src="{{ asset('assets/modules/component/img/stisla-fill.svg')}}" alt="logo" width="100"
+                                class="shadow-light rounded-circle">
                         </div>
-
+                        @if ($errors)
+                        @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger">
+                            <ul>
+                                <li>{{ $error }}</li>
+                            </ul>
+                        </div>
+                        @endforeach
+                        @endif
                         <div class="card card-primary">
                             <div class="card-header">
                                 <h4>Register</h4>
                             </div>
 
                             <div class="card-body">
-                                <form method="POST"  action="{{ route('register') }}">
+                                <form method="POST" action="{{ route('register') }}" class="needs-validation"
+                                    novalidate="">
                                     @csrf
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input id="email" type="email" class="form-control" name="email">
-                                        <div class="invalid-feedback">
-                                        </div>
+                                        <input id="email" type="email" required class="form-control" name="email">
+                                        <x-input-error for="email" />
                                     </div>
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input id="name" type="text" class="form-control" name="name">
-                                        <div class="invalid-feedback">
-                                        </div>
+                                        <x-input-error for="name" />
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-6">
                                             <label for="password" class="d-block">Password</label>
-                                            <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator" name="password">
+                                            <input id="password" type="password" class="form-control pwstrength"
+                                                data-indicator="pwindicator" name="password">
                                             <div id="pwindicator" class="pwindicator">
                                                 <div class="bar"></div>
                                                 <div class="label"></div>
@@ -77,13 +82,14 @@
                                         </div>
                                         <div class="form-group col-6">
                                             <label for="password2" class="d-block">Password Confirmation</label>
-                                            <input id="password2" type="password" class="form-control" name="password_confirmation">
+                                            <input id="password2" type="password" class="form-control"
+                                                name="password_confirmation">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-lg btn-block">
-                                        Register
+                                            Register
                                         </button>
                                     </div>
                                 </form>
@@ -118,7 +124,5 @@
     <script src="{{ asset('assets/js/scripts.js')}}"></script>
     <script src="{{ asset('assets/js/custom.js')}}"></script>
 </body>
-
-<!-- Mirrored from demo.getstisla.com/auth-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 Apr 2020 11:24:18 GMT -->
 
 </html>
