@@ -11,7 +11,7 @@
                 <thead>
                     <tr align="center">
                         <th width="5%" class="pt-2 text-center">{{ __('No') }}</th>
-                        <th width="20%">{{ __('Nama Ibu') }}</th>
+                        <th width="30%">{{ __('Nama Ibu') }}</th>
                         <th>{{ __('Umur') }}</th>
                         <th>{{ __('Nama Suami') }}</th>
                         <th>{{ __('Tgl Partus') }}</th>
@@ -29,6 +29,22 @@
     </x-card>
     @push('js')
     <script>
+        function confirmDelete(id) {
+            swal({
+                title: 'Are you sure?',
+                text: 'Once deleted, you will not be able to recover this imaginary file!',
+                icon: 'warning',
+                buttons: true,
+                showCancelButton: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                    if (willDelete) {
+                        $('#data-'+id).submit();
+                    } else {
+                        swal('Operation Canceled.');
+                    }
+                });
+        }
         $(document).ready(function(){
             $('#dataIdentitasPersalinan').DataTable({
                 processing: true,

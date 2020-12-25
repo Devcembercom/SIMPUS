@@ -46,4 +46,5 @@ mix.scripts([
     'public/assets/modules/izitoast/js/iziToast.min.js',
     'public/assets/js/scripts.js',
     'public/assets/js/custom.js',
+    'public/assets/modules/sweetalert/sweetalert.min.js',
 ], 'public/js/template-app.js').version();

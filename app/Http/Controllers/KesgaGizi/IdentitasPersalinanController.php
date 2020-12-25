@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Models\IdentitasPersalinan;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\KesgaGizi\IdentitasPersalinan\Store;
 use SebastianBergmann\GlobalState\Exception;
+use App\Http\Requests\KesgaGizi\IdentitasPersalinan\FormIdentitasPersalinan;
 
 class IdentitasPersalinanController extends Controller
 {
@@ -32,10 +32,14 @@ class IdentitasPersalinanController extends Controller
                 ->addColumn('partograf', function ($s) {
                     return $s->getPartograf();
                 })
-                ->addColumn('nama_ibu', function ($s) {
-                    return $s->nama_ibu . ' <div class="table-links"><a href="#">View</a><div class="bullet"></div><a href="#">Edit</a><div class="bullet"></div><a href="#" class="text-danger">Trash</a></div>';
+                ->addColumn('jns_persalinan', function ($s) {
+                    return $s->getJenisBersalin();
                 })
-                ->rawColumns(['umur', 'tgl_partus', 'partograf', 'nama_ibu'])
+                ->addColumn('nama_ibu', function ($s) {
+                    return $s->nama_ibu . ' <div class="table-links"><a href="#">View</a><div class="bullet"></div><a href="' . route('identitas-persalinan.edit', $s->id) . '">Edit</a><div class="bullet"></div><form id="data-' . $s->id . '" action="' . route('identitas-persalinan.destroy', $s->id) . '"   method="post"> ' . csrf_field() . ' ' . method_field('delete') . '</form>
+                    <a href="javascript:" onclick="confirmDelete(' . $s->id . ' )" class="text-danger">Trash</a></div>';
+                })
+                ->rawColumns(['umur', 'tgl_partus', 'partograf', 'jns_persalinan', 'nama_ibu'])
                 ->addIndexColumn()
                 ->toJson();
         }
@@ -44,10 +48,11 @@ class IdentitasPersalinanController extends Controller
 
     public function create()
     {
-        return view('KesgaGizi.IdentitasPersalinan.add-data-form');
+        $updateMode = false;
+        return view('KesgaGizi.IdentitasPersalinan.IdP-form', compact('updateMode'));
     }
 
-    public function store(Store $request)
+    public function store(FormIdentitasPersalinan $request)
     {
         try {
             $data = IdentitasPersalinan::create([
@@ -77,5 +82,59 @@ class IdentitasPersalinanController extends Controller
             session()->flash('message', $e);
         }
         return redirect()->route('identitas-persalinan.create');
+    }
+
+    public function edit($id)
+    {
+        return view('KesgaGizi.IdentitasPersalinan.IdP-form', [
+            'data' => IdentitasPersalinan::findOrFail($id),
+            'updateMode' => true
+        ]);
+    }
+
+    public function update(FormIdentitasPersalinan $request, $id)
+    {
+        try {
+            $data = IdentitasPersalinan::findOrFail($id);
+            $data->update([
+                'nama_ibu' => $request->nama_ibu,
+                'umur' => $request->umur,
+                'nama_suami' => $request->nama_suami,
+                'alamat' => $request->alamat,
+                'tgl_partus' => date('Y-m-d', strtotime($request->tgl_partus)),
+                'kondisi_ibu' => $request->kondisi_ibu ?? 'Sehat',
+                'jml_darah' => $request->jml_darah,
+                'partograf' => $request->partograf,
+                'kondisi_bayi' => $request->kondisi_bayi,
+                'jk_bayi' => $request->jk_bayi,
+                'bbl' => $request->bbl,
+                'imd' => $request->imd,
+                'tgl_unijek' => date('Y-m-d', strtotime($request->tgl_unijek)),
+                'tgl_vit_k' => date('Y-m-d', strtotime($request->tgl_vit_k)),
+                'jns_persalinan' => $request->jns_persalinan,
+                'petugas' => $request->petugas,
+                'status_bayar' => $request->status_bayar,
+                'author' => auth()->user()->id,
+            ]);
+            session()->flash('type', 'success');
+            session()->flash('message', 'Data has been Changed');
+        } catch (Exception $e) {
+            session()->flash('type', 'error');
+            session()->flash('message', $e);
+        }
+        return redirect()->route('identitas-persalinan');
+    }
+
+    public function destroy($id)
+    {
+        try {
+            $data = IdentitasPersalinan::destroy($id);
+            session()->flash('type', 'success');
+            session()->flash('message', 'Operation completed successfully');
+        } catch (Exception $e) {
+            session()->flash('type', 'error');
+            session()->flash('message', $e);
+        }
+        return redirect()->route('identitas-persalinan');
     }
 }

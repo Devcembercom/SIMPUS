@@ -4,7 +4,7 @@ namespace App\Http\Requests\KesgaGizi\IdentitasPersalinan;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Store extends FormRequest
+class FormIdentitasPersalinan extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -41,7 +41,6 @@ class Store extends FormRequest
             'jns_persalinan' => 'required|string|max:30',
             'petugas' => 'required|string|max:30',
             'status_bayar' => 'required|string|max:20',
-            'author' => 'required|integer',
         ];
     }
 }
