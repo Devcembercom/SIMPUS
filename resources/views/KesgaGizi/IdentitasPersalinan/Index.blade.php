@@ -22,7 +22,7 @@
                         <th>{{ __('Status BYR') }}</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody align="center"></tbody>
 
             </table>
         </div>
@@ -46,7 +46,6 @@
                 {data: 'petugas', name: 'petugas'},
                 {data: 'status_bayar', name: 'status_bayar'},
                 ],
-                "aLengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
             });
         });
     </script>
