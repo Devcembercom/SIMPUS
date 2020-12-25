@@ -29,6 +29,9 @@ mix.styles([
     'public/assets/css/components.css',
     'public/assets/modules/prism/prism.css',
     'public/assets/modules/izitoast/css/iziToast.min.css',
+    'public/assets/modules/datatables/datatables.min.css',
+    'public/assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css',
+    'public/assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css',
 ], 'public/css/template-app.css').version();
 
 mix.scripts([
@@ -47,4 +50,7 @@ mix.scripts([
     'public/assets/js/scripts.js',
     'public/assets/js/custom.js',
     'public/assets/modules/sweetalert/sweetalert.min.js',
+    'public/assets/modules/datatables/datatables.min.js',
+    'public/assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js',
+    'public/assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js',
 ], 'public/js/template-app.js').version();
