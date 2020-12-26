@@ -21,7 +21,7 @@ class CreateIdentitasPersalinansTable extends Migration
             $table->text('alamat');
             $table->datetime('tgl_partus');
             $table->string('kondisi_ibu', 35);
-            $table->string('jlm_darah', 35);
+            $table->string('jml_darah', 35);
             $table->boolean('partograf')->default(0);
             $table->string('kondisi_bayi', 10);
             $table->boolean('jk_bayi')->default(0);
