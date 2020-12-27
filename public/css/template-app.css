@@ -731,7 +731,7 @@ select.form-control:not([size]):not([multiple]) {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
   .card.card-progress:not(.remove-spinner):after {
-    background-image: url("../img/spinner.svg");
+    background-image: url("public/img/spinner.svg");
     background-size: 80px;
     background-repeat: no-repeat;
     background-position: center; }

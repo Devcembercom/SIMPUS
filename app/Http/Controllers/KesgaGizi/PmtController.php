@@ -18,20 +18,11 @@ class PmtController extends Controller
      */
     public function index()
     {
-        if (request()->ajax()) {
+          if (request()->ajax()) {
             $data = pmt::orderBy('created_at', 'DESC')
                 ->where('author', auth()->user()->id)
                 ->get();
-            return DataTables::of($data)
-                ->addColumn('usia', function ($s) {
-                    return $s->usia;
-                })
-                ->addColumn('hamil', function ($s) {
-                    return $s->hamil;
-                })
-                ->addColumn('tgl1', function ($s) {
-                    return $s->tgl1;
-                })
+                return DataTables::of($data)
                 ->addColumn('bb1', function ($s) {
                     return $s->bb1;
                 })
@@ -48,10 +39,10 @@ class PmtController extends Controller
                     return $s->tt1;
                 })
                 ->addColumn('nama_bumil', function ($s) {
-                    return $s->nama_bumil.' <div class="table-links"><a href="#">View</a><div class="bullet"></div><a href="' . route('identitas-persalinan.edit', $s->id) . '">Edit</a><div class="bullet"></div><form id="data-' . $s->id . '" action="' . route('identitas-persalinan.destroy', $s->id) . '"   method="post"> ' . csrf_field() . ' ' . method_field('delete') . '</form>
+                    return $s->nama_bumil . ' <div class="table-links"><a href="#" class="btn btn-icon icon-left btn-info">view<i class="fas fa-eye"><i/></a><div class="bullet"></div><a href="' . route('identitas-persalinan.edit', $s->id) . '">Edit</a><div class="bullet"></div><form id="data-' . $s->id . '" action="' . route('identitas-persalinan.destroy', $s->id) . '"   method="post"> ' . csrf_field() . ' ' . method_field('delete') . '</form>
                     <a href="javascript:" onclick="confirmDelete(' . $s->id . ' )" class="text-danger">Trash</a></div>';
                 })
-                ->rawColumns(['usia','hamil', 'tgl1', 'bb1', 'lila1', 'hb1', 'jumlah1', 'tt1', 'nama_bumil1'])
+                 ->rawColumns(['bb1', 'lila1', 'hb1', 'jumlah1', 'tt1', 'nama_bumil'])
                 ->addIndexColumn()
                 ->toJson();
         }

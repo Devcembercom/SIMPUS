@@ -32,7 +32,7 @@ mix.styles([
     'public/assets/modules/datatables/datatables.min.css',
     'public/assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css',
     'public/assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css',
-], 'public/css/template-app.css').version();
+],  'public/css/template-app.css').version();
 
 mix.scripts([
     'public/assets/modules/jquery.min.js',

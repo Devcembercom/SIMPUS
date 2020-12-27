@@ -1,13 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
-        {{ __('Laporan PMT BUMIL') }}
+        {{ __('Identitas Persalinan') }}
     </x-slot>
     <x-slot name="button">
-        <a href="{{ route('lap-pmt-bumil.create') }}" class="float-right btn btn-primary">Tambah Data</a>
+        <a href="{{ route('identitas-persalinan.create') }}" class="float-right btn btn-primary">Tambah Data</a>
     </x-slot>
     <x-card>
         <div class="table-responsive">
-            <table class="table table-striped" id="PMT">
+            <table class="table table-striped" id="pmt">
                 <thead>
                     <tr align="center">
                         <th width="5%" class="pt-2 text-center">{{ __('No') }}</th>
@@ -20,7 +20,6 @@
                         <th>{{ __('HB') }}</th>
                         <th>{{ __('Jumlah ') }}</th>
                         <th>{{ __('TT') }}</th>
-                       
                     </tr>
                 </thead>
                 <tbody align="center"></tbody>
@@ -47,12 +46,12 @@
                 });
         }
         $(document).ready(function(){
-            $('#PMT').DataTable({
+            $('#pmt').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('lap-pmt-bumil') }}",
                 columns: [
-                { data: 'DT_RowIndex', name:'DT_RowIndex'},
+                    { data: 'DT_RowIndex', name:'DT_RowIndex'},
                 {data: 'nama_bumil', name: 'nama_bumil'},
                 {data: 'usia', name: 'usia'},
                 {data: 'hamil', name: 'hamil'},
