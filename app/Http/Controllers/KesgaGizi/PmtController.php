@@ -7,7 +7,7 @@ use Yajra\DataTables\DataTables;
 use App\Models\pmt;
 use App\Http\Controllers\Controller;
 use SebastianBergmann\GlobalState\Exception;
-use App\Http\Requests\KesgaGizi\IdentitasPersalinan\FormIdentitasPersalinan;
+use App\Http\Requests\KesgaGizi\PMT\FormPmt;
 
 class PmtController extends Controller
 {
@@ -48,7 +48,7 @@ class PmtController extends Controller
                     return $s->tt1;
                 })
                 ->addColumn('nama_bumil', function ($s) {
-                    return $s->nama_bumil . ' <div class="table-links"><a href="#">View</a><div class="bullet"></div><a href="' . route('identitas-persalinan.edit', $s->id) . '">Edit</a><div class="bullet"></div><form id="data-' . $s->id . '" action="' . route('identitas-persalinan.destroy', $s->id) . '"   method="post"> ' . csrf_field() . ' ' . method_field('delete') . '</form>
+                    return $s->nama_bumil.' <div class="table-links"><a href="#">View</a><div class="bullet"></div><a href="' . route('identitas-persalinan.edit', $s->id) . '">Edit</a><div class="bullet"></div><form id="data-' . $s->id . '" action="' . route('identitas-persalinan.destroy', $s->id) . '"   method="post"> ' . csrf_field() . ' ' . method_field('delete') . '</form>
                     <a href="javascript:" onclick="confirmDelete(' . $s->id . ' )" class="text-danger">Trash</a></div>';
                 })
                 ->rawColumns(['usia','hamil', 'tgl1', 'bb1', 'lila1', 'hb1', 'jumlah1', 'tt1', 'nama_bumil1'])

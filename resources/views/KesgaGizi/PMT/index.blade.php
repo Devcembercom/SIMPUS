@@ -15,6 +15,7 @@
                         <th>{{ __('Usia') }}</th>
                         <th>{{ __('Hamil') }}</th>
                         <th>{{ __('Tanggal') }}</th>
+                        <th>{{ __('BB') }}</th>
                         <th>{{ __('LILA') }}</th>
                         <th>{{ __('HB') }}</th>
                         <th>{{ __('Jumlah ') }}</th>
