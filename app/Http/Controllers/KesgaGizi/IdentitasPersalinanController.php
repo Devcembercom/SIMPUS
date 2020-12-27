@@ -117,7 +117,7 @@ class IdentitasPersalinanController extends Controller
                 'author' => auth()->user()->id,
             ]);
             session()->flash('type', 'success');
-            session()->flash('message', 'Data has been Changed');
+            session()->flash('message', 'Data Berhasil Disimpan');
         } catch (Exception $e) {
             session()->flash('type', 'error');
             session()->flash('message', $e);
@@ -130,7 +130,7 @@ class IdentitasPersalinanController extends Controller
         try {
             $data = IdentitasPersalinan::destroy($id);
             session()->flash('type', 'success');
-            session()->flash('message', 'Operation completed successfully');
+            session()->flash('message', 'Data Berhasil Dihapus');
         } catch (Exception $e) {
             session()->flash('type', 'error');
             session()->flash('message', $e);
