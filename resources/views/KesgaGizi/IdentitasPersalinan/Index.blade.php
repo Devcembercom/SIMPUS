@@ -32,7 +32,7 @@
         function confirmDelete(id) {
             swal({
                 title: 'Are you sure?',
-                text: 'Once deleted, you will not be able to recover this imaginary file!',
+                text: 'Sekali dihapus, data tersebut tidak bisa dipulihkan!',
                 icon: 'warning',
                 buttons: true,
                 showCancelButton: true,

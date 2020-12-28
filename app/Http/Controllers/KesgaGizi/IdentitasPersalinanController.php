@@ -76,7 +76,7 @@ class IdentitasPersalinanController extends Controller
                 'author' => auth()->user()->id,
             ]);
             session()->flash('type', 'success');
-            session()->flash('message', 'Data has been saved');
+            session()->flash('message', 'Data Berhasil Disimpan');
         } catch (Exception $e) {
             session()->flash('type', 'error');
             session()->flash('message', $e);
@@ -117,7 +117,7 @@ class IdentitasPersalinanController extends Controller
                 'author' => auth()->user()->id,
             ]);
             session()->flash('type', 'success');
-            session()->flash('message', 'Data Berhasil Disimpan');
+            session()->flash('message', 'Data Berhasil Dirubah');
         } catch (Exception $e) {
             session()->flash('type', 'error');
             session()->flash('message', $e);

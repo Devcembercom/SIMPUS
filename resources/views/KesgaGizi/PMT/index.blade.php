@@ -3,7 +3,7 @@
         {{ __('Identitas Persalinan') }}
     </x-slot>
     <x-slot name="button">
-        <a href="{{ route('identitas-persalinan.create') }}" class="float-right btn btn-primary">Tambah Data</a>
+        <a href="{{ route('lap-pmt-bumil.create') }}" class="float-right btn btn-primary">Tambah Data</a>
     </x-slot>
     <x-card>
         <div class="table-responsive">
@@ -32,7 +32,7 @@
         function confirmDelete(id) {
             swal({
                 title: 'Are you sure?',
-                text: 'Once deleted, you will not be able to recover this imaginary file!',
+                text: 'Sekali dihapus, data tersebut tidak bisa dipulihkan!',
                 icon: 'warning',
                 buttons: true,
                 showCancelButton: true,
