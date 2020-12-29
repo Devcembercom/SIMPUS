@@ -25,4 +25,10 @@
             </ul>
         </li>
     </ul>
+    <div class="p-3 mt-4 mb-4 hide-sidebar-mini">
+        <a href="{{ route('settings.index',['tab' => 'general']) }}"
+            class="btn btn-primary btn-lg btn-block btn-icon-split">
+            <i class="fas fa-cog"></i> {{ __('Settings') }}
+        </a>
+    </div>
 </aside>
