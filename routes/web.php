@@ -25,4 +25,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('kesga-gizi/lap-pmt-bumil/{id}', 'KesgaGizi\PmtController@destroy')->name('lap-pmt-bumil.destroy');
 
     Route::get('settings', 'Settings\SettingsController@index')->name('settings.index');
+    Route::post('settings/update', 'Settings\SettingsController@updateGeneral')->name('settings.updateGeneral');
 });

@@ -1,4 +1,4 @@
-<form action="" method="post" novalidate="" class="needs-validation">
+<form action="{{ route('settings.updateGeneral') }}" method="post" novalidate="" class="needs-validation">
     @csrf
     <x-card>
         <x-slot name="title"> {{ __('General Settings') }} </x-slot>
@@ -10,7 +10,7 @@
             <x-label for="site_title" class="form-control-label col-sm-3 text-md-right">{{ __('Site
                 Title') }}</x-label>
             <div class="col-sm-6 col-md-9">
-                <x-input type="text" name="site_title" class="form-control" id="site_title" />
+                <x-input type="text" required name="site_title" class="form-control" id="site_title" />
                 <x-input-error for="site_title" />
             </div>
         </div>
