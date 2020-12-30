@@ -24,6 +24,9 @@
                 <li class="{{ set_active('PwsKiaNagari') }}"><a class="nav-link"
                         href="{{ route('PwsKiaNagari') }}">{{ __('PWS KIA NAGARI') }}</a>
                 </li>
+                <li class="{{ set_active('identitasK1k4') }}"><a class="nav-link"
+                        href="{{ route('identitasK1k4') }}">{{ __('Identitas K1 & K4') }}</a>
+                </li>
             </ul>
         </li>
     </ul>
