@@ -1,6 +1,6 @@
 <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-        <a href="{{ route('dashboard') }}">{{ config('app.name') }}</a>
+        <a href="{{ route('dashboard') }}">{{ $title ?? config('app.name') }}</a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
         <a href="{{ route('dashboard') }}">Lib</a>
