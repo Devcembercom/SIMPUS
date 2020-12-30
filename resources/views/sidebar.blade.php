@@ -21,7 +21,9 @@
                 <li class="{{ set_active('lap-pmt-bumil') }}"><a class="nav-link"
                         href="{{ route('lap-pmt-bumil') }}">Laporan
                         PMT BUMIL</a></li>
-                <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
+                <li class="{{ set_active('PwsKiaNagari') }}"><a class="nav-link"
+                        href="{{ route('PwsKiaNagari') }}">{{ __('PWS KIA NAGARI') }}</a>
+                </li>
             </ul>
         </li>
     </ul>

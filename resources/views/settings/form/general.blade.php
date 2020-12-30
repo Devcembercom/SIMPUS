@@ -17,7 +17,7 @@
         </div>
         <div class="form-group row align-items-center">
             <x-label for="site_logo" class="form-control-label col-sm-3 text-md-right">
-                {{ __('Site Logo') }}
+                {{ __('Site Logo/Icon') }}
             </x-label>
             <div class="col-sm-6 col-md-9">
                 <figure class="mb-4 " id="imagePreview">
