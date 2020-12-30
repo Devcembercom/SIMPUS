@@ -6,7 +6,6 @@
             <thead>
                 <tr align="center">
                     <th width="5%" class="pt-2 text-center">{{ __('No') }}</th>
-                    <th width="30%">{{ __('Nama Ibu') }}</th>
                     <th>{{ __('Bulan') }}</th>
                     <th>{{ __('Nama Ibu') }}</th>
                     <th>{{ __('Umur') }}</th>
@@ -23,3 +22,26 @@
         </table>
     </div>
 </x-card>
+@push('js')
+<script>
+    $(document).ready(function(){
+            $('#tableK1').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('dataK1') }}",
+                columns: [
+                { data: 'DT_RowIndex', name:'DT_RowIndex'},
+                {data: 'bulan', name: 'bulan'},
+                {data: 'nama_ibu', name: 'nama_ibu'},
+                {data: 'umur', name: 'umur'},
+                {data: 'alamat', name: 'alamat'},
+                {data: 'nama_suami', name: 'nama_suami'},
+                {data: 'hamil_ke', name: 'hamil_ke'},
+                {data: 'hpht', name: 'hpht'},
+                {data: 'usia_hamil', name: 'usia_hamil'},
+                {data: 'dpt_buku', name: 'dpt_buku'},
+                ],
+            });
+        });
+</script>
+@endpush

@@ -27,6 +27,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('kesga-gizi/pws-kia-nagari', 'KesgaGizi\PwsKiaNagariController@index')->name('PwsKiaNagari');
 
     Route::get('identitas-k1-&-k4', 'KesgaGizi\IdentitasK1K4Controller@index')->name('identitasK1k4');
+    Route::get('data-identitas-k1', 'KesgaGizi\IdentitasK1K4Controller@dataK1')->name('dataK1');
+    Route::get('data-identitas-k4', 'KesgaGizi\IdentitasK1K4Controller@dataK4')->name('dataK4');
 
     Route::get('settings', 'Settings\SettingsController@index')->name('settings.index');
     Route::post('settings/update', 'Settings\SettingsController@updateGeneral')->name('settings.updateGeneral');
