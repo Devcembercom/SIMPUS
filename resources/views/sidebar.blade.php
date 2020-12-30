@@ -12,7 +12,7 @@
                     class="fas fa-fire"></i><span>{{ __('Dashboard') }}</span></a>
         </li>
         <li class="menu-header">{{ __('Laporan') }}</li>
-        <li class="dropdown {{ set_active(['identitas-persalinan','lap-pmt-bumil']) }}">
+        <li class="dropdown {{ set_active(['identitas-persalinan','lap-pmt-bumil','identitasK1k4']) }}">
             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                 <span>{{ __('Kesga Gizi KB Imunisasi') }}</span></a>
             <ul class="dropdown-menu">
