@@ -15,6 +15,7 @@ class CreateIdentitasK1STable extends Migration
     {
         Schema::create('identitas_k1', function (Blueprint $table) {
             $table->id();
+            $table->string('bulan', 20);
             $table->string('nama_ibu', 100);
             $table->integer('umur');
             $table->text('alamat');
