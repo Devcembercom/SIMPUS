@@ -18,7 +18,7 @@
             <ul class="dropdown-menu">
                 <li><a class="nav-link" href="{{ route('identitas-persalinan') }}">Identitas Persalinan</a></li>
                 <li><a class="nav-link" href="{{ route('lap-pmt-bumil') }}">Laporan PMT BUMIL</a></li>
-                <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
+                <li><a class="nav-link" href="{{ route('lap-mp') }}">Laporan Balita Dapat MP</a></li>
             </ul>
         </li> 
     </ul>

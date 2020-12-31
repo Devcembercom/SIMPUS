@@ -1,29 +1,27 @@
 <x-app-layout>
     <x-slot name="header">
-        {{ __('LAPORAN BUMIL KEK/ ANEMIA DAPAT PMT TAHUN 2020') }}
+        {{ __('LAPORAN BALITA DAPAT MP-ASI/ PMT TAHUN 2020') }}
     </x-slot>
     <x-slot name="button">
-        <a href="{{ route('lap-pmt-bumil.create') }}" class="float-right btn btn-primary">Tambah Data</a>
+        <a href="{{ route('lap-mp.create') }}" class="float-right btn btn-primary">Tambah Data</a>
     </x-slot>
     <x-card>
         <div class="table-responsive">
-            <table class="table table-striped" id="pmt">
+            <table class="table table-striped" id="Mp">
                 <thead>
                     <tr align="center">
                         <th width="5%" class="pt-2 text-center">{{ __('No') }}</th>
-                        <th width="30%">{{ __('Nama Bumil') }}</th>
+                        <th width="30%">{{ __('Nama Balita') }}</th>
                         <th>{{ __('Usia') }}</th>
-                        <th>{{ __('Hamil') }}</th>
+                        <th>{{ __('Nama Ibu') }}</th>
+                        <th>{{ __('Lahir') }}</th>
                         <th>{{ __('Tanggal') }}</th>
                         <th>{{ __('BB') }}</th>
-                        <th>{{ __('LILA') }}</th>
-                        <th>{{ __('HB') }}</th>
                         <th>{{ __('Jumlah ') }}</th>
                         <th>{{ __('TT') }}</th>
                     </tr>
                 </thead>
                 <tbody align="center"></tbody>
-
             </table>
         </div>
     </x-card>
@@ -46,19 +44,18 @@
                 });
         }
         $(document).ready(function(){
-            $('#pmt').DataTable({
+            $('#Mp').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('lap-pmt-bumil') }}",
+                ajax: "{{ route('lap-mp') }}",
                 columns: [
                     { data: 'DT_RowIndex', name:'DT_RowIndex'},
-                {data: 'nama_bumil', name: 'nama_bumil'},
+                {data: 'nama_balita', name: 'nama_balita'},
                 {data: 'usia', name: 'usia'},
-                {data: 'hamil', name: 'hamil'},
+                {data: 'ibu', name: 'ibu'},
+                {data: 'lahir', name: 'lahir'},
                 {data: 'tgl1', name: 'tgl1'},
                 {data: 'bb1', name: 'bb1'},
-                {data: 'lila1', name: 'lila1'},
-                {data: 'hb1', name: 'hb1'},
                 {data: 'jumlah1', name: 'jumlah1'},
                 {data: 'tt1', name: 'tt1'},
                 ],

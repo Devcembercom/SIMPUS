@@ -23,4 +23,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('kesga-gizi/lap-pmt-bumil/{id}/edit', 'KesgaGizi\PmtController@edit')->name('lap-pmt-bumil.edit');
     Route::patch('kesga-gizi/lap-pmt-bumil/{id}/update', 'KesgaGizi\PmtController@update')->name('lap-pmt-bumil.update');
     Route::delete('kesga-gizi/lap-pmt-bumil/{id}', 'KesgaGizi\PmtController@destroy')->name('lap-pmt-bumil.destroy');
+
+    Route::get('kesga-gizi/lap-mp', 'KesgaGizi\MpController@index')->name('lap-mp');
+    Route::get('kesga-gizi/lap-mp/create', 'KesgaGizi\MpController@create')->name('lap-mp.create');
+    Route::post('kesga-gizi/lap-mp/store', 'KesgaGizi\MpController@store')->name('lap-mp.store');
+    Route::get('kesga-gizi/lap-mp/{id}/edit', 'KesgaGizi\MpController@edit')->name('lap-mp.edit');
+    Route::patch('kesga-gizi/lap-mp/{id}/update', 'KesgaGizi\MpController@update')->name('lap-mp.update');
+    Route::delete('kesga-gizi/lap-mp/{id}', 'KesgaGizi\MpController@destroy')->name('lap-mp.destroy');
 });
