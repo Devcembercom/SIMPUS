@@ -28,7 +28,6 @@
                 <li class="{{ set_active('identitasK1k4') }}"><a class="nav-link"
                         href="{{ route('identitasK1k4') }}">{{ __('Identitas K1 & K4') }}</a>
                 </li>
-                <li><a class="nav-link" href="{{ route('identitas-persalinan') }}">Identitas Persalinan</a></li>
                 <li><a class="nav-link" href="{{ route('lap-mp') }}">Laporan Balita Dapat MP</a></li>
             </ul>
         </li>

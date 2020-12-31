@@ -7,9 +7,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="turbolinks-cache-control" content="no-cache">
     <meta name="turbolinks-visit-control" content="reload">
-
+    @php
+    $icon = App\Models\Settings::where('name', 'site_logo')->first()->val
+    @endphp
     <title>{{ $title ?? config('app.name') }}</title>
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('storage/images/245/'.$icon) }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{('storage/images/245/' . $icon )}}">
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ mix('css/template-app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css') }}">
