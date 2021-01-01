@@ -28,7 +28,12 @@
                 <li class="{{ set_active('identitasK1k4') }}"><a class="nav-link"
                         href="{{ route('identitasK1k4') }}">{{ __('Identitas K1 & K4') }}</a>
                 </li>
-                <li><a class="nav-link" href="{{ route('lap-mp') }}">Laporan Balita Dapat MP</a></li>
+                <li class="{{ set_active('lap-mp') }}">
+                    <a class="nav-link" href="{{ route('lap-mp') }}">{{ __('Laporan Balita Dapat MP')}}</a>
+                </li>
+                <li class="{{ set_active('lap-anemia') }}">
+                    <a class="nav-link" href="{{ route('lap-anemia') }}">{{ __('Laporan Ibu Hamil Kek')}}</a>
+                </li>
             </ul>
         </li>
     </ul>

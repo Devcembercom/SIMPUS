@@ -32,6 +32,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::patch('kesga-gizi/lap-mp/{id}/update', 'KesgaGizi\MpController@update')->name('lap-mp.update');
     Route::delete('kesga-gizi/lap-mp/{id}', 'KesgaGizi\MpController@destroy')->name('lap-mp.destroy');
 
+    Route::get('kesga-gizi/lap-anemia', 'KesgaGizi\AnemiaController@index')->name('lap-anemia');
+    Route::get('kesga-gizi/lap-anemia/create', 'KesgaGizi\AnemiaController@create')->name('lap-anemia.create');
+    Route::post('kesga-gizi/lap-anemia/store', 'KesgaGizi\AnemiaController@store')->name('lap-anemia.store');
+    Route::get('kesga-gizi/lap-anemia/{id}/edit', 'KesgaGizi\AnemiaController@edit')->name('lap-anemia.edit');
+    Route::patch('kesga-gizi/lap-anemia/{id}/update', 'KesgaGizi\AnemiaController@update')->name('lap-anemia.update');
+    Route::delete('kesga-gizi/lap-anemia/{id}', 'KesgaGizi\AnemiaController@destroy')->name('lap-anemia.destroy');
+
     Route::get('kesga-gizi/pws-kia-nagari', 'KesgaGizi\PwsKiaNagariController@index')->name('PwsKiaNagari');
 
     Route::get('identitas-k1-&-k4', 'KesgaGizi\IdentitasK1K4Controller@index')->name('identitasK1k4');
