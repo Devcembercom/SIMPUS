@@ -17,6 +17,26 @@ class BayiController extends Controller
     }
     public function index()
     {
+        if (request()->ajax()) {
+            $data = Bayi::orderBy('created_at', 'DESC')
+                ->where('author', auth()->user()->id)
+                ->get();
+                return DataTables::of($data)
+                ->addColumn('jumlah_umur', function ($s) {
+                    return $s->jumlah_umur;
+                })
+                ->addColumn('jumh_bayi', function ($s) {
+                    return $s->jumh_bayi1;
+                })
+                ->addColumn('nama_jorong', function ($s) {
+                    return $s->nama_jorong . ' <div class="table-links"><a href="#" class="btn btn-icon icon-left btn-outline-info"><i class="fas fa-eye "></i></a>  <a href="' . route('lap-bayi.edit', $s->id) . '" class="btn btn-icon icon-left btn-outline-warning"><i class="fas fa-edit"></i></a>  
+                    <form id="data-' . $s->id . '" action="' . route('lap-bayi.destroy', $s->id) . '"   method="post"> ' . csrf_field() . ' ' . method_field('delete') . '</form>
+                    <a href="javascript:" onclick="confirmDelete(' . $s->id . ' )" class="btn btn-icon icon-left btn-outline-danger"><i class="fas fa-times"></i></a></div> ';
+                })
+                 ->rawColumns(['jumlah_umur', 'jumlah_bayi1', 'nama_jorong'])
+                ->addIndexColumn()
+                ->toJson();
+        }
         return view ('KesgaGizi.Bayi.index');
     }
 
