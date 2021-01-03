@@ -34,6 +34,9 @@
                 <li class="{{ set_active('lap-anemia') }}">
                     <a class="nav-link" href="{{ route('lap-anemia') }}">{{ __('Laporan Ibu Hamil Kek')}}</a>
                 </li>
+                <li class="{{ set_active('lap-bayi') }}">
+                    <a class="nav-link" href="{{ route('lap-bayi') }}">{{ __('Formulir Rekap Bayi')}}</a>
+                </li>
             </ul>
         </li>
     </ul>
