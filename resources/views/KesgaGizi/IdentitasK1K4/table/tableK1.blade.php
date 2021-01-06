@@ -1,7 +1,7 @@
 <x-card class="card-primary">
     <x-slot name="title">{{ __('Identitas K1') }}</x-slot>
-    <a href="{{ route('createDatak1k4',['type' => 'k1']) }}"
-        class="btn btn-primary float-right mb-3">{{ __('Tambah Data') }}</a>
+    <a href="{{ route('createDataK1',['type' => 'k1']) }}"
+        class="float-right mb-3 btn btn-primary">{{ __('Tambah Data') }}</a>
     <div class="table-responsive">
         <table class="table table-striped" id="tableK1">
             <thead>

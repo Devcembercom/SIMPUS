@@ -49,14 +49,21 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('kesga-gizi/pws-kia-nagari', 'KesgaGizi\PwsKiaNagariController@index')->name('PwsKiaNagari');
 
-    Route::get('identitas-k1-&-k4', 'KesgaGizi\IdentitasK1K4Controller@index')->name('identitasK1k4');
-    Route::get('data-identitas-k1', 'KesgaGizi\IdentitasK1K4Controller@dataK1')->name('dataK1');
-    Route::get('data-identitas-k4', 'KesgaGizi\IdentitasK1K4Controller@dataK4')->name('dataK4');
-    Route::get('identitas-k1-&-k4/create', 'KesgaGizi\IdentitasK1K4Controller@create')->name('createDatak1k4');
-    Route::get('identitas-k1-&-k4/{id}/edit', 'KesgaGizi\IdentitasK1K4Controller@edit')->name('editDatak1k4');
-    Route::post('identitas-k1-&-k4/storek1', 'KesgaGizi\IdentitasK1K4Controller@store')->name('storeK1k4');
-    Route::post('identitas-k1-&-k4/{id}/update', 'KesgaGizi\IdentitasK1K4Controller@update')->name('updateK1k4');
-    Route::delete('identitas-k1-&-k4/{id}', 'KesgaGizi\IdentitasK1K4Controller@destroy')->name('destroyK1k4');
+    Route::get('identitas-k1-&-k4', 'KesgaGizi\IdentitasK1Controller@index')->name('identitasK1k4');
+    Route::get('data-identitas-k1', 'KesgaGizi\IdentitasK1Controller@dataK1')->name('dataK1');
+    Route::get('data-identitas-k4', 'KesgaGizi\IdentitasK4Controller@dataK4')->name('dataK4');
+
+    Route::get('identitas-k1/create', 'KesgaGizi\IdentitasK1Controller@create')->name('createDataK1');
+    Route::get('identitas-k4/create', 'KesgaGizi\IdentitasK4Controller@create')->name('createDataK4');
+    Route::post('identitas-k1-&-k4/storek1', 'KesgaGizi\IdentitasK1Controller@store')->name('storeK1');
+    Route::post('identitas-k1-&-k4/storek4', 'KesgaGizi\IdentitasK4Controller@store')->name('storeK4');
+
+    Route::get('identitas-k1-&-k4/{id}/editK1', 'KesgaGizi\IdentitasK1Controller@edit')->name('editDataK1');
+    Route::get('identitas-k1-&-k4/{id}/editK4', 'KesgaGizi\IdentitasK4Controller@edit')->name('editDataK4');
+    Route::post('identitas-k1-&-k4/{id}/updateK1', 'KesgaGizi\IdentitasK1Controller@update')->name('updateK1');
+    Route::post('identitas-k1-&-k4/{id}/updateK4', 'KesgaGizi\IdentitasK4Controller@update')->name('updateK4');
+    Route::delete('identitas-k1-&-k4/{id}/k1', 'KesgaGizi\IdentitasK1Controller@destroy')->name('destroyK1');
+    Route::delete('identitas-k1-&-k4/{id}/k4', 'KesgaGizi\IdentitasK4Controller@destroy')->name('destroyK4');
 
     Route::get('settings', 'Settings\SettingsController@index')->name('settings.index');
     Route::post('settings/update', 'Settings\SettingsController@updateGeneral')->name('settings.updateGeneral');

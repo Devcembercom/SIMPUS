@@ -4,9 +4,8 @@
     </x-slot>
 
     <x-card class="card-primary">
-        <form
-            action="{{ $updateMode ? route('updateK1k4',['id' => $data->id , 'type' => 'k1']) : route('storeK1k4',['type' => 'k1']) }}"
-            method="post" nonvalidate="" class="needs-validation">
+        <form action="{{ $updateMode ? route('updateK1',$data->id) : route('storeK1') }}" method="post" nonvalidate=""
+            class="needs-validation">
             @csrf
             <div class="row">
                 <div class="form-group col-md-6 col-lg-6 col-12">
