@@ -25,6 +25,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('kesga-gizi/lap-pmt-bumil/{id}', 'KesgaGizi\PmtController@destroy')->name('lap-pmt-bumil.destroy');
 
     Route::get('kesga-gizi/lap-lb1', 'KesgaGizi\LB1Controller@index')->name('lap-lb1');
+    Route::get('kesga-gizi/list-lap-lb1', 'KesgaGizi\LB1Controller@listLb1')->name('list.lb1');
+    Route::post('kesga-gizi/lap-lb1', 'KesgaGizi\LB1Controller@store')->name('lb1.uploadFile');
+    Route::get('kesga-gizi/lap-lb1/download', 'KesgaGizi\LB1Controller@fileDownload')->name('lb1.download');
 
     Route::get('kesga-gizi/lap-mp', 'KesgaGizi\MpController@index')->name('lap-mp');
     Route::get('kesga-gizi/lap-mp/create', 'KesgaGizi\MpController@create')->name('lap-mp.create');
