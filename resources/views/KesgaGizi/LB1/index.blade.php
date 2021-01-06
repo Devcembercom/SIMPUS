@@ -6,7 +6,9 @@
         <a href="{{ route('identitas-persalinan.create') }}" class="float-right btn btn-primary">Tambah Data</a>
     </x-slot>
     <x-card>
-        <div id="spreadsheet"></div>
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://docs.google.com/spreadsheets/d/1dKUUSo_2cPaoWB4Y4UH8rqK1ykdcqLvOJzLiZFwDtGE/edit?usp=sharing&amp;headers=false"></iframe>
+        </div>
     </x-card>
     @push('js')
     <script>
@@ -45,6 +47,7 @@
                     width:30
                 },
             ],
+            
             nestedHeaders:[
                 [
                     {
