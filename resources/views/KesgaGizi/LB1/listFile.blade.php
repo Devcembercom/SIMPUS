@@ -31,5 +31,8 @@
                 </tbody>
             </table>
         </div>
+        <div class="float-right">
+            {{ $datas->links() }}
+        </div>
     </x-card>
 </x-app-layout>

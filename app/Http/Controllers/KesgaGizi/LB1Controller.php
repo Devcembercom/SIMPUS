@@ -52,9 +52,12 @@ class LB1Controller extends Controller
 
     public function listLb1()
     {
-        return view('KesgaGizi.Lb1.listFile', [
-            'datas' => Lb1File::select('filename', 'author', 'created_at')->orderBy('created_at', 'desc')->paginate('10')
-        ]);
+        if (auth()->user()->role == 'admin') {
+            $datas = Lb1File::select('filename', 'author', 'created_at')->orderBy('created_at', 'desc')->paginate('10');
+        } else {
+            $datas = Lb1File::select('filename', 'author', 'created_at')->where('author', auth()->user()->id)->orderBy('created_at', 'desc')->paginate('10');
+        }
+        return view('KesgaGizi.Lb1.listFile', compact('datas'));
     }
 
     public function fileDownload(Request $request)
