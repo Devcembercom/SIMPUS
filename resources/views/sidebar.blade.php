@@ -37,13 +37,15 @@
                 <li class="{{ set_active('lap-bayi') }}">
                     <a class="nav-link" href="{{ route('lap-bayi') }}">{{ __('Formulir Rekap Bayi')}}</a>
                 </li>
-<<<<<<< HEAD
-=======
+
                 <li class="{{ set_active('lap-lb1') }}">
                     <a class="nav-link" href="{{ route('lap-lb1') }}">{{ __('Laporan LB1')}}</a>
                 </li>
->>>>>>> 34d68d37f8c85fdec222b3c67efa03f87e4d0bf1
             </ul>
+        </li>
+        <li class="{{ set_active('promkes') }}">
+            <a href="{{ route('promkes') }}" class="nav-link"><i
+                    class="fas fa-first-aid"></i><span>{{ __('Promkes Kesling') }}</span></a>
         </li>
     </ul>
     <div class="p-3 mt-4 mb-4 hide-sidebar-mini">

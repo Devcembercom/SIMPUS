@@ -65,6 +65,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('identitas-k1-&-k4/{id}/k1', 'KesgaGizi\IdentitasK1Controller@destroy')->name('destroyK1');
     Route::delete('identitas-k1-&-k4/{id}/k4', 'KesgaGizi\IdentitasK4Controller@destroy')->name('destroyK4');
 
+    Route::get('laporan-promkes-kesling-pis-pk-lansia', 'Promkes\PromkesController@index')->name('promkes');
+
     Route::get('settings', 'Settings\SettingsController@index')->name('settings.index');
     Route::post('settings/update', 'Settings\SettingsController@updateGeneral')->name('settings.updateGeneral');
 });
