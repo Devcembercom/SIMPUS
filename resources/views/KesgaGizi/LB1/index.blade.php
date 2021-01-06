@@ -6,76 +6,34 @@
         <a href="{{ route('identitas-persalinan.create') }}" class="float-right btn btn-primary">Tambah Data</a>
     </x-slot>
     <x-card>
+        <button onclick="toggleFullScreen ();">Klik disini</button>
         <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://docs.google.com/spreadsheets/d/1dKUUSo_2cPaoWB4Y4UH8rqK1ykdcqLvOJzLiZFwDtGE/edit?usp=sharing&amp;headers=false"></iframe>
+            <iframe class="embed-responsive-item"
+                src="https://docs.google.com/spreadsheets/d/1dKUUSo_2cPaoWB4Y4UH8rqK1ykdcqLvOJzLiZFwDtGE/edit?usp=sharing&amp;headers=false"></iframe>
         </div>
     </x-card>
     @push('js')
-    <script>
-        var data = [
-        ['Hipertensi ', ''],
-        ['Hipertensi ', ''],
-        ['Hipertensi ', ''],
-        ];
-        
-        table = jexcel(document.getElementById('spreadsheet'), {
-            data:data,
-            columns: [
-                {
-                    type: 'text',
-                    title:'A.PTM',
-                    width:120
-                },
-                {
-                    type: 'text',
-                    title:'ICD X',
-                    width:120
-                },
-                {
-                    type: 'text',
-                    title:'B',
-                    width:30
-                },
-                {
-                    type: 'text',
-                    title:'L',
-                    width:30
-                },
-                {
-                    type: 'text',
-                    title:'KK',
-                    width:30
-                },
-            ],
-            
-            nestedHeaders:[
-                [
-                    {
-                        title: 'Kelompok Umur',
-                        colspan: '40',
-                    },
-                ],
-                [
-                    {
-                        title: 'Nama Penyakit',
-                        colspan: '1',
-                    },
-                    {
-                        title: ' ',
-                        colspan: '1'
-                    },
-                   
-                    {
-                        title: '0-7 hari',
-                        colspan: '3',
-                    },
-                ],
-            ],
-            
-            
-            columnDrag:true,
-            license: '39130-64ebc-bd98e-26bc4',
-        });
+    <script type="text/javascript">
+        function toggleFullScreen() {
+          if ((document.fullScreenElement && document.fullScreenElement !== null) ||
+           (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+            if (document.documentElement.requestFullScreen) {
+              document.documentElement.requestFullScreen();
+            } else if (document.documentElement.mozRequestFullScreen) {
+              document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullScreen) {
+              document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+            }
+          } else {
+            if (document.cancelFullScreen) {
+              document.cancelFullScreen();
+            } else if (document.mozCancelFullScreen) {
+              document.mozCancelFullScreen();
+            } else if (document.webkitCancelFullScreen) {
+              document.webkitCancelFullScreen();
+            }
+          }
+        }
     </script>
     @endpush
 </x-app-layout>

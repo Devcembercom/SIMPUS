@@ -7,7 +7,7 @@
                         {{ $logo }}
                     </div>
 
-                    <div class="card card-primary">
+                    <div class="card card-success">
                         <div class="card-header">
                             <h4>{{ $title }}</h4>
                         </div>
