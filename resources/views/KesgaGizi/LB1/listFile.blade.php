@@ -22,7 +22,8 @@
                         <td>{{ $data->getUser->name }}</td>
                         <td>{{ date('d F Y H:i:s',strtotime($data->created_at)) }}</td>
                         <td>
-                            <a href="{{ route('lb1.download',['file' => $data->filename, 'author' => $data->getUser->name , 'ad' => $data->author]) }}"
+                            <a data-turbolinks="false"
+                                href="{{ route('lb1.download',['file' => $data->filename, 'author' => $data->getUser->name , 'ad' => $data->author]) }}"
                                 class="btn btn-primary btn-sm">{{ __('Download') }}</a>
                         </td>
                     </tr>
