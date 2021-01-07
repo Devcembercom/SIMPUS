@@ -29,6 +29,6 @@ class CreateLb1Table extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lb1');
+        Schema::dropIfExists('file_lb1');
     }
 }
