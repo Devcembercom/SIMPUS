@@ -69,6 +69,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('identitas-k1-&-k4/{id}/k4', 'KesgaGizi\IdentitasK4Controller@destroy')->name('destroyK4');
 
     Route::get('laporan-promkes-kesling-pis-pk-lansia', 'Promkes\PromkesController@index')->name('promkes');
+    Route::get('promkes-kesling-pis-pk-lansia/list-promkes', 'Promkes\PromkesController@listPromkes')->name('list.promkes');
+    Route::post('promkes-kesling-pis-pk-lansia/lap-promkes', 'Promkes\PromkesController@store')->name('promkes.uploadFile');
+    Route::get('promkes-kesling-pis-pk-lansia/lap-promkes/download', 'Promkes\PromkesController@fileDownload')->name('promkes.download');
 
     Route::get('settings', 'Settings\SettingsController@index')->name('settings.index');
     Route::post('settings/update', 'Settings\SettingsController@updateGeneral')->name('settings.updateGeneral');
