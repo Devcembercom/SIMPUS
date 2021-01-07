@@ -53,7 +53,7 @@
                     <x-input type="date" name="tgl_partus" class="{{ $errors->has('tgl_partus') ? ' is-invalid' : '' }}"
                         required
                         value="{{ $updateMode ? date('Y-m-d',strtotime($data->tgl_partus)) : old('tgl_partus') }}"
-                        min="{{ date('Y-m-d') }}" />
+                        />
                     <x-input-error for="tgl_partus" />
                 </div>
                 <div class="col-md-6 col-lg-6 col-12 form-group">
@@ -136,7 +136,7 @@
                 <div class="col-md-6 col-lg-6 col-12 form-group">
                     <x-label for="tgl_unijek">{{ __('Tanggal Unijek') }}</x-label>
                     <x-input id="tgl_unijek" class="{{ $errors->has('tgl_unijek') ? ' is-invalid' : '' }}" type="date"
-                        min="{{ date('Y-m-d') }}" name="tgl_unijek"
+                         name="tgl_unijek"
                         value="{{ $updateMode ? date('Y-m-d',strtotime($data->tgl_unijek)) : old('tgl_unijek') }}"
                         tabindex="1" />
                     <x-input-error for="tgl_unijek" />
@@ -144,7 +144,7 @@
                 <div class="col-md-6 col-lg-6 col-12 form-group">
                     <x-label for="tgl_vit_k">{{ __('Tanggal Vit K') }}</x-label>
                     <x-input id="tgl_vit_k" class="{{ $errors->has('tgl_vit_k') ? ' is-invalid' : '' }}" type="date"
-                        min="{{ date('Y-m-d') }}" name="tgl_vit_k"
+                         name="tgl_vit_k"
                         value="{{ $updateMode ? date('Y-m-d',strtotime($data->tgl_vit_k)) : old('tgl_vit_k') }}"
                         tabindex="1" />
                     <x-input-error for="tgl_vit_k" />
