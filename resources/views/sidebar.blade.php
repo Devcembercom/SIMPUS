@@ -54,4 +54,12 @@
             <i class="fas fa-cog"></i> {{ __('Settings') }}
         </a>
     </div>
+    @php
+        $a = App\Models\Lb1File::all()->count();
+        $b = App\Models\PromkesFile::all()->count();
+        $c = $a+$b
+    @endphp
+    <div class="p-3 mt-4 mb-4 hide-sidebar-mini">
+        <a href="#">{{$c}}</a> File (Dikumpulkan)
+    </div>
 </aside>
