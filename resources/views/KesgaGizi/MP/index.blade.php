@@ -6,7 +6,7 @@
         <a href="{{ route('lap-mp.create') }}" class="float-right btn btn-primary">Tambah Data</a>
     </x-slot>
     <x-card>
-        <div class="table-responsive">
+        {{-- <div class="table-responsive">
             <table class="table table-striped" id="Mp">
                 <thead>
                     <tr align="center">
@@ -23,6 +23,11 @@
                 </thead>
                 <tbody align="center"></tbody>
             </table>
+        </div> --}}
+
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item"
+                src="https://docs.google.com/spreadsheets/d/1nFLZaIogHXmI6VjF9U7OVT7euxrTCs1__vX7i1-XPZw/edit?usp=sharing&amp;headers=false"></iframe>
         </div>
     </x-card>
     @push('js')

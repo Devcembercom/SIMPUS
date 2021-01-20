@@ -73,6 +73,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('promkes-kesling-pis-pk-lansia/lap-promkes', 'Promkes\PromkesController@store')->name('promkes.uploadFile');
     Route::get('promkes-kesling-pis-pk-lansia/lap-promkes/download', 'Promkes\PromkesController@fileDownload')->name('promkes.download');
 
+    Route::get('kesga-gizi/BGM', 'KesgaGizi\BGM@index')->name('lap-BGM');
+
     Route::get('settings', 'Settings\SettingsController@index')->name('settings.index');
     Route::post('settings/update', 'Settings\SettingsController@updateGeneral')->name('settings.updateGeneral');
 });

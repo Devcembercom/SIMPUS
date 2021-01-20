@@ -6,7 +6,7 @@
         <a href="{{ route('lap-pmt-bumil.create') }}" class="float-right btn btn-primary">Tambah Data</a>
     </x-slot>
     <x-card>
-        <div class="table-responsive">
+        {{-- <div class="table-responsive">
             <table class="table table-striped" id="pmt">
                 <thead>
                     <tr align="center">
@@ -25,7 +25,12 @@
                 <tbody align="center"></tbody>
 
             </table>
+        </div> --}}
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item"
+                src=" https://docs.google.com/spreadsheets/d/1RUcWFAnPlYyaGD6YJ6X2_i5DKYzT4DuFOkFDS9OkF4U/edit?usp=sharing&amp;headers=false"></iframe>
         </div>
+       
     </x-card>
     @push('js')
     <script>

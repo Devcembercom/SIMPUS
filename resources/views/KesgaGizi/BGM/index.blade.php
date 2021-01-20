@@ -1,32 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
-        {{ __('FORMULIR REKAPITULASI BAYI KURANG DARI 6 BULAN MENDAPAT ASI') }}
+        {{ __('LAPORAN IDENTITAS BALITA KURANG GIZI PUSKESMAS MUNGO') }}
     </x-slot>
     <x-slot name="button">
         <a href="{{ route('lap-bayi.create') }}" class="float-right btn btn-primary">Tambah Data</a>
     </x-slot>
     <x-card>
-        {{-- <div class="table-responsive">
-            <table class="table table-striped" id="bayi">
-                <thead>
-                    <tr align="center">
-                        <th width="5%" class="pt-2 text-center">{{ __('No') }}</th>
-                        <th width="30%">{{ __('Nama Jorong') }}</th>
-                        <th>{{ __('Nama Posyandu') }}</th>
-                        <th width="20%">{{ __('Jumlah sasaran Bayi umur 0-6 bulan') }}</th>
-                        <th>{{ __('Jumlah Bayi') }}</th>
-                        <th>{{ __('Jumlah bayi masih ASI Eksklusif') }}</th>
-                        <th>{{ __('%') }}</th>
-                    </tr>
-                </thead>
-                <tbody align="center"></tbody>
-
-            </table>
-        </div> --}}
-
         <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item"
-                src="https://docs.google.com/spreadsheets/d/1yTtQE6JabMI3V9NiVBoSwHfPMcs3NHnW8KtasBJ4v44/edit?usp=sharing&amp;headers=false"></iframe>
+                src="https://docs.google.com/spreadsheets/d/1qTpLgO7Oyc1ntWxiUZNfr_ltRCitSPlkl4i03A4u73M/edit?usp=sharing&amp;headers=false"></iframe>
         </div>
     </x-card>
     @push('js')
