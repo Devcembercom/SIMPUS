@@ -9,6 +9,8 @@ class PwsKiaNagariController extends Controller
 {
     public function index()
     {
-        return abort('503', 'Proses Penyiapan');
+        // return abort('503', 'Proses Penyiapan');
+
+        return view('KesgaGizi.KIA.index');
     }
 }
