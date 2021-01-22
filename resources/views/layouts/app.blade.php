@@ -10,12 +10,12 @@
     <title>{{ $title ?? config('app.name') }}</title>
     <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('storage/images/245/' . $icon ) }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('assets/css/all.css') }}" defer></script>
     <link href="{{ mix('css/template-app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css') }}">
     <script src="https://bossanova.uk/jexcel/v4/jexcel.js"></script>
     <script src="https://jsuites.net/v3/jsuites.js"></script>
     <link rel="stylesheet" href="https://jsuites.net/v3/jsuites.css" type="text/css" />
-    <link rel="stylesheet" href="https://bossanova.uk/jexcel/v4/jexcel.css" type="text/css" />
 
     @stack('css')
 </head>

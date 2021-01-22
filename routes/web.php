@@ -154,6 +154,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('promkes-kesling-pis-pk-lansia/lap-promkes', 'Promkes\PromkesController@store')->name('promkes.uploadFile');
     Route::get('promkes-kesling-pis-pk-lansia/lap-promkes/download', 'Promkes\PromkesController@fileDownload')->name('promkes.download');
 
+    Route::get('kesga-gizi/chart/kesga', 'chart@kesga')->name('chart-kesga');
+    Route::get('kesga-gizi/chart/promkes', 'chart@promkes')->name('chart-promkes');
+    Route::get('kesga-gizi/chart/lb1', 'chart@lb1')->name('chart-lb1');
 
     Route::get('kesga-gizi/jorong', 'KesgaGizi\jorong@index')->name('lap-jorong');
     Route::get('kesga-gizi/jorong1', 'KesgaGizi\jorong@index')->name('lap-jorong1');

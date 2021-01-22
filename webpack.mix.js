@@ -17,6 +17,7 @@ mix.scripts([
     'public/assets/modules/bootstrap/js/bootstrap.min.js',
     'public/assets/modules/nicescroll/jquery.nicescroll.min.js',
     'public/assets/modules/moment.min.js',
+    'public/assets/modules/chart.min.js',
     'public/assets/js/stisla.js',
     'public/assets/js/scripts.js',
     'public/assets/js/custom.js',
