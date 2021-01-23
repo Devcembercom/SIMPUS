@@ -11,6 +11,12 @@
             <a href="{{ route('dashboard') }}" class="nav-link"><i
                     class="fas fa-fire"></i><span>{{ __('Dashboard') }}</span></a>
         </li>
+
+        <li class="menu-header">{{ __('Pengguna') }}</li>
+        <li class="{{ set_active('register') }}">
+            <a href="{{ route('register') }}" class="nav-link"><i
+                    class="fas fa-user-plus"></i><span>{{ __('Tambah Pengguna') }}</span></a>
+        </li>
         {{-- <li class="menu-header">{{ __('Laporan') }}</li>
         <li class="dropdown {{ set_active(['identitas-persalinan','lap-pmt-bumil','identitasK1k4']) }}">
             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
@@ -48,7 +54,7 @@
                     class="fas fa-first-aid"></i><span>{{ __('Laporan LB1') }}</span></a>
         </li> --}}
 
-
+        <li class="menu-header">{{ __('Jorong') }}</li>
         <li class="dropdown {{ set_active(['lap-jorong','identitas-persalinan','lap-pmt-bumil','identitasK1k4']) }}">
             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                 <span>{{ __('Kesga Gizi KB Imunisasi') }}</span></a>
