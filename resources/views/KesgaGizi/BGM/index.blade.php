@@ -3,7 +3,11 @@
         {{ __('LAPORAN IDENTITAS BALITA KURANG GIZI PUSKESMAS MUNGO') }}
     </x-slot>
     <x-slot name="button">
-        <a href="{{ route('lap-bayi.create') }}" class="float-right btn btn-primary">Tambah Data</a>
+        <a href="{{ route('fileBgm',['nagari' => request()->nagari]) }}" class="float-right btn btn-primary"><i class="fa fa-list"></i>
+            {{ __('list File BGM') }}</a>
+        <a href="javascript:" class="float-right btn btn-success" data-target="#modalUpload" data-toggle="modal"
+            data-placement="bottom" title="" data-original-title="Upload File"><i class="fa fa-file-excel"></i>
+            {{ __('Upload File') }}</a>
     </x-slot>
     <x-card>
         <div class="embed-responsive embed-responsive-16by9">
@@ -11,40 +15,5 @@
                 src="https://docs.google.com/spreadsheets/d/1qTpLgO7Oyc1ntWxiUZNfr_ltRCitSPlkl4i03A4u73M/edit?usp=sharing&amp;headers=false"></iframe>
         </div>
     </x-card>
-    @push('js')
-    <script>
-        function confirmDelete(id) {
-            swal({
-                title: 'Are you sure?',
-                text: 'Sekali dihapus, data tersebut tidak bisa dipulihkan!',
-                icon: 'warning',
-                buttons: true,
-                showCancelButton: true,
-                dangerMode: true,
-            }).then((willDelete) => {
-                    if (willDelete) {
-                        $('#data-'+id).submit();
-                    } else {
-                        swal('Operation Canceled.');
-                    }
-                });
-        }
-        $(document).ready(function(){
-            $('#bayi').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('lap-bayi') }}",
-                columns: [
-                    { data: 'DT_RowIndex', name:'DT_RowIndex'},
-                {data: 'nama_jorong', name: 'nama_jorong'},
-                {data: 'nama_posyandu', name: 'nama_posyandu'},
-                {data: 'jumlah_umur', name: 'jumlah_umur'},
-                {data: 'jumlah_bayi1', name: 'jumlah_bayi1'},
-                {data: 'eklusif1', name: 'eklusif1'},
-                {data: 'persen1', name: 'persen1'},
-                ],
-            });
-        });
-    </script>
-    @endpush
 </x-app-layout>
+@include('KesgaGizi.BGM.modalUpload')

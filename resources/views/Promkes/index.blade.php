@@ -3,7 +3,7 @@
         {{ __('LAPORAN PROMKES, KESLING, PIS PK, LANSIA') }}
     </x-slot>
     <x-slot name="button">
-        <a href="{{ route('list.promkes') }}" class="float-right btn btn-primary"><i class="fa fa-list"></i>
+        <a href="{{ route('list.promkes',['nagari' => request()->nagari]) }}" class="float-right btn btn-primary"><i class="fa fa-list"></i>
             {{ __('list File Promkes') }}</a>
         <a href="javascript:" class="float-right btn btn-success" data-target="#modalUpload" data-toggle="modal"
             data-placement="bottom" title="" data-original-title="Upload File"><i class="fa fa-file-excel"></i>

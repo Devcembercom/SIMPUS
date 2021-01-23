@@ -3,7 +3,11 @@
         {{ __('FORMULIR REKAPITULASI BAYI KURANG DARI 6 BULAN MENDAPAT ASI') }}
     </x-slot>
     <x-slot name="button">
-        <a href="{{ route('lap-bayi.create') }}" class="float-right btn btn-primary">Tambah Data</a>
+        <a href="{{ route('fileBayi',['nagari' => request()->nagari]) }}" class="float-right btn btn-primary"><i class="fa fa-list"></i>
+            {{ __('list File Bayi') }}</a>
+        <a href="javascript:" class="float-right btn btn-success" data-target="#modalUpload" data-toggle="modal"
+            data-placement="bottom" title="" data-original-title="Upload File"><i class="fa fa-file-excel"></i>
+            {{ __('Upload File') }}</a>
     </x-slot>
     <x-card>
         {{-- <div class="table-responsive">
@@ -66,3 +70,4 @@
     </script>
     @endpush
 </x-app-layout>
+@include('KesgaGizi.Bayi.modalUpload')

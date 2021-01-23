@@ -169,7 +169,7 @@ class IdentitasPersalinanController extends Controller
     public function fileIdentitasPersalinan()
     {
         if (auth()->user()->role == 'admin') {
-            $datas = Files::where('nagari', request()->nagari)->orderBy('created_at', 'desc')->paginate('10');
+            $datas = Files::where('nagari', request()->nagari)->where('file_kategori','IdentitasPersalinan')->orderBy('created_at', 'desc')->paginate('10');
         } else {
             $datas = Files::where('author', auth()->user()->id)
             ->where('file_kategori','IdentitasPersalinan')->orderBy('created_at', 'desc')->paginate('10');
