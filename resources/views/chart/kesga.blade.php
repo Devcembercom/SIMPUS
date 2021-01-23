@@ -2,9 +2,6 @@
     <x-slot name="header">
         {{ __('Kesga Gizi KB Imunisasi') }}
     </x-slot>
-    <x-slot name="button">
-        <a href="{{ route('lap-anemia.create') }}" class="float-right btn btn-primary">Tambah Data</a>
-    </x-slot>
     <x-card>
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -66,7 +63,7 @@
                   </div>
                 </div>
               </div>
-            </div>                  
+            </div>
           </div>
           <div class="row">
             <div class="col-lg-12 col-md-12 col-12 col-sm-12">
@@ -107,12 +104,12 @@
                 </div>
               </div>
             </div>
-            
+
           </div>
     </x-card>
     @push('js')
     <script>
-        
+
     </script>
     @endpush
 </x-app-layout>
