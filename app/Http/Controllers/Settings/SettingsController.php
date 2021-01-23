@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Settings;
 
 use Carbon\Carbon;
+use App\Models\Nagari;
 use App\Models\Settings;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -25,7 +26,11 @@ class SettingsController extends Controller
     public function index()
     {
         $siteTitle = Settings::where('name', 'site_title')->first();
-        return view('settings.index', compact('siteTitle'));
+        $datas = null;
+        if (request()->tab == 'nagari') {
+            $datas = Nagari::paginate(20);
+        }
+        return view('settings.index', compact('siteTitle','datas'));
     }
 
     public function updateGeneral(Request $request)
@@ -66,5 +71,28 @@ class SettingsController extends Controller
         session()->flash('type', 'success');
         session()->flash('message', 'Data Berhasil Disimpan');
         return redirect()->route('settings.index', ['tab' => 'general']);
+    }
+
+    public function addNagari(Request $request)
+    {
+        $request->validate([
+            'nagari' => 'required|string|max:100',
+        ]);
+        Nagari::insert([
+            'nama' => $request->nagari,
+        ]);
+
+        session()->flash('type', 'success');
+        session()->flash('message', 'Data Berhasil Disimpan');
+        return redirect()->route('settings.index', ['tab' => 'nagari']);
+
+    }
+
+    public function deleteNagari($id)
+    {
+        Nagari::find($id)->delete();
+        session()->flash('type', 'success');
+        session()->flash('message', 'Data Berhasil dihapus');
+        return redirect()->route('settings.index', ['tab' => 'nagari']);
     }
 }

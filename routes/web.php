@@ -159,44 +159,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('kesga-gizi/chart/lb1', 'chart@lb1')->name('chart-lb1');
 
     Route::get('kesga-gizi/jorong', 'KesgaGizi\jorong@index')->name('lap-jorong');
-    Route::get('kesga-gizi/jorong1', 'KesgaGizi\jorong@index')->name('lap-jorong1');
-    Route::get('kesga-gizi/jorong2', 'KesgaGizi\jorong@index')->name('lap-jorong2');
-    Route::get('kesga-gizi/jorong3', 'KesgaGizi\jorong@index')->name('lap-jorong3');
-    Route::get('kesga-gizi/jorong4', 'KesgaGizi\jorong@index')->name('lap-jorong4');
-    Route::get('kesga-gizi/jorong5', 'KesgaGizi\jorong@index')->name('lap-jorong5');
-    Route::get('kesga-gizi/jorong6', 'KesgaGizi\jorong@index')->name('lap-jorong6');
-    Route::get('kesga-gizi/jorong7', 'KesgaGizi\jorong@index')->name('lap-jorong7');
-    Route::get('kesga-gizi/jorong8', 'KesgaGizi\jorong@index')->name('lap-jorong8');
-    Route::get('kesga-gizi/jorong9', 'KesgaGizi\jorong@index')->name('lap-jorong9');
-    Route::get('kesga-gizi/jorong10', 'KesgaGizi\jorong@index')->name('lap-jorong10');
-    Route::get('kesga-gizi/jorong11', 'KesgaGizi\jorong@index')->name('lap-jorong11');
-    Route::get('kesga-gizi/jorong12', 'KesgaGizi\jorong@index')->name('lap-jorong12');
-    Route::get('kesga-gizi/jorong13', 'KesgaGizi\jorong@index')->name('lap-jorong13');
-    Route::get('kesga-gizi/jorong14', 'KesgaGizi\jorong@index')->name('lap-jorong14');
-    Route::get('kesga-gizi/jorong15', 'KesgaGizi\jorong@index')->name('lap-jorong15');
-    Route::get('kesga-gizi/jorong16', 'KesgaGizi\jorong@index')->name('lap-jorong16');
-    Route::get('kesga-gizi/jorong17', 'KesgaGizi\jorong@index')->name('lap-jorong17');
-    Route::get('kesga-gizi/jorong18', 'KesgaGizi\jorong@index')->name('lap-jorong18');
-    Route::get('kesga-gizi/jorong19', 'KesgaGizi\jorong@index')->name('lap-jorong19');
-    Route::get('kesga-gizi/jorong20', 'KesgaGizi\jorong@index')->name('lap-jorong20');
-    Route::get('kesga-gizi/jorong21', 'KesgaGizi\jorong@index')->name('lap-jorong21');
-    Route::get('kesga-gizi/jorong22', 'KesgaGizi\jorong@index')->name('lap-jorong22');
-    Route::get('kesga-gizi/jorong23', 'KesgaGizi\jorong@index')->name('lap-jorong23');
-    Route::get('kesga-gizi/jorong24', 'KesgaGizi\jorong@index')->name('lap-jorong24');
-    Route::get('kesga-gizi/jorong25', 'KesgaGizi\jorong@index')->name('lap-jorong25');
-    Route::get('kesga-gizi/jorong26', 'KesgaGizi\jorong@index')->name('lap-jorong26');
-    Route::get('kesga-gizi/jorong27', 'KesgaGizi\jorong@index')->name('lap-jorong27');
-    Route::get('kesga-gizi/jorong28', 'KesgaGizi\jorong@index')->name('lap-jorong28');
-    Route::get('kesga-gizi/jorong29', 'KesgaGizi\jorong@index')->name('lap-jorong29');
-    Route::get('kesga-gizi/jorong30', 'KesgaGizi\jorong@index')->name('lap-jorong30');
-    Route::get('kesga-gizi/jorong31', 'KesgaGizi\jorong@index')->name('lap-jorong31');
-    Route::get('kesga-gizi/jorong32', 'KesgaGizi\jorong@index')->name('lap-jorong32');
-    Route::get('kesga-gizi/jorong33', 'KesgaGizi\jorong@index')->name('lap-jorong33');
-    Route::get('kesga-gizi/jorong34', 'KesgaGizi\jorong@index')->name('lap-jorong34');
-    Route::get('kesga-gizi/jorong35', 'KesgaGizi\jorong@index')->name('lap-jorong35');
-    Route::get('kesga-gizi/jorong36', 'KesgaGizi\jorong@index')->name('lap-jorong36');
-    Route::get('kesga-gizi/jorong37', 'KesgaGizi\jorong@index')->name('lap-jorong37');
-    Route::get('kesga-gizi/jorong38', 'KesgaGizi\jorong@index')->name('lap-jorong38');
+
 
     Route::get('kesga-gizi/BGM', 'KesgaGizi\BGM@index')->name('lap-BGM');
     Route::get('kesga-gizi/MTBS2', 'KesgaGizi\MTBS2@index')->name('lap-MTBS2');
@@ -206,4 +169,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('settings', 'Settings\SettingsController@index')->name('settings.index');
     Route::post('settings/update', 'Settings\SettingsController@updateGeneral')->name('settings.updateGeneral');
+    Route::post('settings/addNagari', 'Settings\SettingsController@addNagari')->name('settings.addNagari');
+    Route::get('settings/delete/{id}', 'Settings\SettingsController@deleteNagari')->name('settings.deleteNagari');
 });

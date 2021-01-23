@@ -11,7 +11,7 @@ class Lb1File extends Model
      *
      * @var string
      */
-    protected $table = 'file_lb1';
+    protected $table = 'files';
     /**
      * The attributes that aren't mass assignable.
      *

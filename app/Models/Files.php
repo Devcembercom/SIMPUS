@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PromkesFile extends Model
+class Files extends Model
 {
     /**
      * The table associated with the model.
