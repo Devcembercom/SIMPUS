@@ -3,7 +3,11 @@
         {{ __('LAPORAN IBU HAMIL KEK DAN ANEMIA PUSKESMAS MUNGO') }}
     </x-slot>
     <x-slot name="button">
-        <a href="{{ route('lap-anemia.create') }}" class="float-right btn btn-primary">Tambah Data</a>
+        <a href="{{ route('fileAnemia',['nagari' => request()->nagari]) }}" class="float-right btn btn-primary"><i class="fa fa-list"></i>
+            {{ __('list File Anemia') }}</a>
+        <a href="javascript:" class="float-right btn btn-success" data-target="#modalUpload" data-toggle="modal"
+            data-placement="bottom" title="" data-original-title="Upload File"><i class="fa fa-file-excel"></i>
+            {{ __('Upload File') }}</a>
     </x-slot>
     <x-card>
         {{-- <div class="table-responsive">
@@ -30,45 +34,7 @@
         <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item"
                 src="https://docs.google.com/spreadsheets/d/17pzlah0TqGbiXqFnE2nmwOLFzmqg0YmU8UG0-7rOH5k/edit?usp=sharing&amp;headers=false"></iframe>
-        </div>        
+        </div>
     </x-card>
-    @push('js')
-    <script>
-        function confirmDelete(id) {
-            swal({
-                title: 'Are you sure?',
-                text: 'Sekali dihapus, data tersebut tidak bisa dipulihkan!',
-                icon: 'warning',
-                buttons: true,
-                showCancelButton: true,
-                dangerMode: true,
-            }).then((willDelete) => {
-                    if (willDelete) {
-                        $('#data-'+id).submit();
-                    } else {
-                        swal('Operation Canceled.');
-                    }
-                });
-        }
-        $(document).ready(function(){
-            $('#anemia').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('lap-anemia') }}",
-                columns: [
-                { data: 'DT_RowIndex', name:'DT_RowIndex'},
-                {data: 'nama_ibu', name: 'nama_ibu'},
-                {data: 'alamat', name: 'alamat'},
-                {data: 'lahir', name: 'lahir'},
-                {data: 'ditemukan', name: 'ditemukan'},
-                {data: 'bb', name: 'bb'},
-                {data: 'tb', name: 'tb'},
-                {data: 'lila', name: 'lila'},
-                {data: 'hb', name: 'hb'},
-                {data: 'protein', name: 'protein'},
-                ],
-            });
-        });
-    </script>
-    @endpush
 </x-app-layout>
+@include('KesgaGizi.Anemia.modalUpload')

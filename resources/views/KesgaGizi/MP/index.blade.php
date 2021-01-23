@@ -3,7 +3,11 @@
         {{ __('LAPORAN BALITA DAPAT MP-ASI/ PMT TAHUN 2020') }}
     </x-slot>
     <x-slot name="button">
-        <a href="{{ route('lap-mp.create') }}" class="float-right btn btn-primary">Tambah Data</a>
+        <a href="{{ route('fileMp',['nagari' => request()->nagari]) }}" class="float-right btn btn-primary"><i class="fa fa-list"></i>
+            {{ __('list File MP') }}</a>
+        <a href="javascript:" class="float-right btn btn-success" data-target="#modalUpload" data-toggle="modal"
+            data-placement="bottom" title="" data-original-title="Upload File"><i class="fa fa-file-excel"></i>
+            {{ __('Upload File') }}</a>
     </x-slot>
     <x-card>
         {{-- <div class="table-responsive">
@@ -69,3 +73,4 @@
     </script>
     @endpush
 </x-app-layout>
+@include('KesgaGizi.MP.modalUpload')

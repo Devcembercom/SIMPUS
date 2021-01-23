@@ -4,7 +4,7 @@
             {{ __( 'Upload File Excel') }}
         </x-slot>
         <x-slot name="content">
-            <form action="{{ route('promkes.uploadFile',['nagari' => request()->nagari]) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('Mtbs.uploadFile',['nagari' => request()->nagari]) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <x-label for="fileExcel">{{ __('Upload File Excel') }}</x-label>

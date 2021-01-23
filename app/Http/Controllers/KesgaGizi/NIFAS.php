@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\KesgaGizi;
 
+use Exception;
+use Carbon\Carbon;
+use App\Models\Files;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+
 class NIFAS extends Controller
 {
     /**
@@ -16,69 +21,53 @@ class NIFAS extends Controller
         return view('KesgaGizi.NIFAS.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function uploadFile(Request $request)
     {
-        //
+        $request->validate([
+            'fileExcel' => 'required|file|mimes:csv,xls,xlsx|max:2048'
+        ]);
+        if ($request->hasFile('fileExcel')) {
+            $file = $request->file('fileExcel');
+            $name = 'NIFAS(' . auth()->user()->name . ')' . date('Y-m-d') . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('fileUpload/NIFAS', $name);
+
+            Files::insert([
+                'filename' => $name,
+                'file_kategori' => 'nifas',
+                'path' => $path,
+                'nagari' => $request->nagari,
+                'author' => auth()->user()->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+            session()->flash('type', 'success');
+            session()->flash('message', 'Data Berhasil diUpload');
+        }
+        return redirect()->route('lap-NIFAS',['nagari' => $request->nagari]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function fileNIFAS()
     {
-        //
+        if (auth()->user()->role == 'admin') {
+            $datas = Files::where('nagari', request()->nagari)->where('file_kategori', 'nifas')->orderBy('created_at', 'desc')->paginate('10');
+        } else {
+            $datas = Files::where('author', auth()->user()->id)
+            ->where('file_kategori','nifas')->orderBy('created_at', 'desc')->paginate('10');
+        }
+        return view('KesgaGizi.NIFAS.listFile', compact('datas'));
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function fileDownload(Request $request)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        if (auth()->user()->role == 'admin' || $request->ad == auth()->user()->id) {
+            try {
+                $url =  '/fileUpload/NIFAS/' . $request->file;
+                return Storage::download($url);
+            } catch (Exception $e) {
+                session()->flash('type', 'error');
+                session()->flash('message', $e);
+                return back();
+            }
+        }
     }
 }

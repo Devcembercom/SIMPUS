@@ -3,7 +3,7 @@
         {{ __('Laporan LB1') }}
     </x-slot>
     <x-slot name="button">
-        <a href="{{ route('list.lb1') }}" class="float-right btn btn-primary"><i class="fa fa-list"></i>
+        <a href="{{ route('list.lb1', ['nagari' => request()->nagari]) }}" class="float-right btn btn-primary"><i class="fa fa-list"></i>
             {{ __('list File Lb1') }}</a>
         <a href="javascript:" class="float-right btn btn-success" data-target="#modalUpload" data-toggle="modal"
             data-placement="bottom" title="" data-original-title="Upload File"><i class="fa fa-file-excel"></i>

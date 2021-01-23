@@ -8,6 +8,7 @@ use App\Models\LB1;
 use App\Models\Lb1File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Files;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -29,40 +30,32 @@ class LB1Controller extends Controller
             'fileExcel' => 'required|file|mimes:csv,xls,xlsx|max:2048'
         ]);
         if ($request->hasFile('fileExcel')) {
-            // try {
             $file = $request->file('fileExcel');
-            $name = 'Lb1(' . auth()->user()->name . ')' . date('Y-m-d') . '.' . $file->getClientOriginalExtension();
+            $name = 'LB1(' . auth()->user()->name . ')' . date('Y-m-d') . '.' . $file->getClientOriginalExtension();
             $path = $file->storeAs('fileUpload/LB1', $name);
-            // $path =  $file->move("fileUpload/LB1", $name);
 
-            // $file = $request->file('fileExcel');
-            // $dt = Carbon::now();
-            // $acak  = $file->getClientOriginalExtension();
-            // $name = rand(11111, 99999) . '-' . $dt->format('Y-m-d-H-i-s') . '.' . $acak;
-            // $request->file('fileExcel')->move("fileUpload/LB1", $name);
-            Lb1File::insert([
+            Files::insert([
                 'filename' => $name,
+                'file_kategori' => 'Lb1',
                 'path' => $path,
+                'nagari' => $request->nagari,
                 'author' => auth()->user()->id,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
             session()->flash('type', 'success');
             session()->flash('message', 'Data Berhasil diUpload');
-            // } catch (Exception $e) {
-            //     session()->flash('type', 'error');
-            //     session()->flash('message', $e);
-            // }
+
         }
-        return redirect()->route('lap-lb1');
+        return redirect()->route('lap-lb1',['nagari' => $request->nagari]);
     }
 
     public function listLb1()
     {
         if (auth()->user()->role == 'admin') {
-            $datas = Lb1File::select('filename', 'author', 'created_at')->orderBy('created_at', 'desc')->paginate('10');
+            $datas = Files::where('nagari', request()->nagari)->where('file_kategori', 'Lb1')->orderBy('created_at', 'desc')->paginate('10');
         } else {
-            $datas = Lb1File::select('filename', 'author', 'created_at')->where('author', auth()->user()->id)->orderBy('created_at', 'desc')->paginate('10');
+            $datas = Files::where('nagari', request()->nagari)->where('file_kategori', 'Lb1')->where('author', auth()->user()->id)->orderBy('created_at', 'desc')->paginate('10');
         }
         return view('KesgaGizi.Lb1.listFile', compact('datas'));
     }

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\KesgaGizi;
 
+use Carbon\Carbon;
+use App\Models\Files;
 use App\Models\Anemia;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use SebastianBergmann\GlobalState\Exception;
 use App\Http\Requests\KesgaGizi\Anemia\formanemia;
 
@@ -38,7 +41,7 @@ class AnemiaController extends Controller
                     return $s->siha;
                 })
                 ->addColumn('nama_ibu', function ($s) {
-                    return $s->nama_ibu . ' <div class="table-links"><a href="#" class="btn btn-icon icon-left btn-outline-info"><i class="fas fa-eye "></i></a>  <a href="' . route('lap-anemia.edit', $s->id) . '" class="btn btn-icon icon-left btn-outline-warning"><i class="fas fa-edit"></i></a>  
+                    return $s->nama_ibu . ' <div class="table-links"><a href="#" class="btn btn-icon icon-left btn-outline-info"><i class="fas fa-eye "></i></a>  <a href="' . route('lap-anemia.edit', $s->id) . '" class="btn btn-icon icon-left btn-outline-warning"><i class="fas fa-edit"></i></a>
                     <form id="data-' . $s->id . '" action="' . route('lap-anemia.destroy', $s->id) . '"   method="post"> ' . csrf_field() . ' ' . method_field('delete') . '</form>
                     <a href="javascript:" onclick="confirmDelete(' . $s->id . ' )" class="btn btn-icon icon-left btn-outline-danger"><i class="fas fa-times"></i></a></div> ';
                 })
@@ -49,138 +52,52 @@ class AnemiaController extends Controller
         return view('KesgaGizi.Anemia.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function uploadFile(Request $request)
     {
-        $updateMode = false;
-        return view('KesgaGizi.Anemia.anemia-form', compact('updateMode'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        try {
-            $data = Anemia::create([
-                'nama_ibu' => $request->nama_ibu,
-                'alamat' => $request->alamat,
-                'lahir' => $request->lahir,
-                'ditemukan' => $request->ditemukan,
-                'bb' => $request->bb,
-                'tb' => $request->tb,
-                'lila' => $request->lila,
-                'hb' => $request->hb,
-                'protein' => $request->protein,
-                'siha' => $request->siha,
-                'hamil' => $request->hamil,
-                'intervansi' => $request->intervansi,
-                'nama_suami' => $request->nama_suami,
-                'pekerjaan' => $request->pekerjaan,
-                'status' => $request->status,
-                'bpjs' => $request->bpjs,
-                'kasus' => $request->kasus,
-                'ket' => $request->ket,
-                'author' => auth()->user()->id,
-            ]);
-            session()->flash('type', 'success');
-            session()->flash('message', 'Data Berhasil Disimpan');
-        } catch (Exception $e) {
-            session()->flash('type', 'error');
-            session()->flash('message', $e);
-        }
-        return redirect()->route('lap-anemia');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Anemia  $anemia
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Anemia $anemia)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Anemia  $anemia
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        return view('KesgaGizi.Anemia.anemia-form', [
-            'data' => Anemia::findOrFail($id),
-            'updateMode' => true
+        $request->validate([
+            'fileExcel' => 'required|file|mimes:csv,xls,xlsx|max:2048'
         ]);
-    }
+        if ($request->hasFile('fileExcel')) {
+            $file = $request->file('fileExcel');
+            $name = 'Anemia(' . auth()->user()->name . ')' . date('Y-m-d') . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('fileUpload/Anemia', $name);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Anemia  $anemia
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        try {
-            $data = Anemia::findOrFail($id);
-            $data->update([
-                'nama_ibu' => $request->nama_ibu,
-                'alamat' => $request->alamat,
-                'lahir' => $request->lahir,
-                'ditemukan' => $request->ditemukan,
-                'bb' => $request->bb,
-                'tb' => $request->tb,
-                'lila' => $request->lila,
-                'hb' => $request->hb,
-                'protein' => $request->protein,
-                'siha' => $request->siha,
-                'hamil' => $request->hamil,
-                'intervansi' => $request->intervansi,
-                'nama_suami' => $request->nama_suami,
-                'pekerjaan' => $request->pekerjaan,
-                'status' => $request->status,
-                'bpjs' => $request->bpjs,
-                'kasus' => $request->kasus,
-                'ket' => $request->ket,
+            Files::insert([
+                'filename' => $name,
+                'file_kategori' => 'anemia',
+                'path' => $path,
+                'nagari' => $request->nagari,
                 'author' => auth()->user()->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
             session()->flash('type', 'success');
-            session()->flash('message', 'Data Berhasil Dirubah');
-        } catch (Exception $e) {
-            session()->flash('type', 'error');
-            session()->flash('message', $e);
+            session()->flash('message', 'Data Berhasil diUpload');
         }
-        return redirect()->route('lap-anemia');
+        return redirect()->route('lap-anemia',['nagari' => $request->nagari]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Anemia  $anemia
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function fileAnemia()
     {
-        try {
-            $data = Anemia::destroy($id);
-            session()->flash('type', 'success');
-            session()->flash('message', 'Data Berhasil Dihapus');
-        } catch (Exception $e) {
-            session()->flash('type', 'error');
-            session()->flash('message', $e);
+        if (auth()->user()->role == 'admin') {
+            $datas = Files::where('nagari', request()->nagari)->where('file_kategori', 'anemia')->orderBy('created_at', 'desc')->paginate('10');
+        } else {
+            $datas = Files::where('author', auth()->user()->id)
+            ->where('file_kategori','anemia')->orderBy('created_at', 'desc')->paginate('10');
         }
-        return redirect()->route('lap-anemia');
+        return view('KesgaGizi.Anemia.listFile', compact('datas'));
+    }
+    public function fileDownload(Request $request)
+    {
+        if (auth()->user()->role == 'admin' || $request->ad == auth()->user()->id) {
+            try {
+                $url =  '/fileUpload/Anemia/' . $request->file;
+                return Storage::download($url);
+            } catch (Exception $e) {
+                session()->flash('type', 'error');
+                session()->flash('message', $e);
+                return back();
+            }
+        }
     }
 }

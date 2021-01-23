@@ -3,7 +3,11 @@
         {{ __('LAPORAN BUMIL KEK/ ANEMIA DAPAT PMT TAHUN 2020') }}
     </x-slot>
     <x-slot name="button">
-        <a href="{{ route('lap-pmt-bumil.create') }}" class="float-right btn btn-primary">Tambah Data</a>
+        <a href="{{ route('list.filePmt',['nagari' => request()->nagari]) }}" class="float-right btn btn-primary"><i class="fa fa-list"></i>
+            {{ __('list File PMT') }}</a>
+        <a href="javascript:" class="float-right btn btn-success" data-target="#modalUpload" data-toggle="modal"
+            data-placement="bottom" title="" data-original-title="Upload File"><i class="fa fa-file-excel"></i>
+            {{ __('Upload File') }}</a>
     </x-slot>
     <x-card>
         {{-- <div class="table-responsive">
@@ -30,7 +34,7 @@
             <iframe class="embed-responsive-item"
                 src=" https://docs.google.com/spreadsheets/d/1RUcWFAnPlYyaGD6YJ6X2_i5DKYzT4DuFOkFDS9OkF4U/edit?usp=sharing&amp;headers=false"></iframe>
         </div>
-       
+
     </x-card>
     @push('js')
     <script>
@@ -72,3 +76,4 @@
     </script>
     @endpush
 </x-app-layout>
+@include('KesgaGizi.PMT.modalUpload')

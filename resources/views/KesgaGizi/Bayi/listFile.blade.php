@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        {{ __('List File Laporan Identitas Persalinan') }}
+        {{ __('List File Laporan Anemia') }}
     </x-slot>
     <x-card>
         <div class="table-responsive">
@@ -25,7 +25,7 @@
                         <td>{{ date('d F Y H:i:s',strtotime($data->created_at)) }}</td>
                         <td>
                             <a data-turbolinks="false"
-                                href="{{ route('IdentitasPersalinan.download',['file' => $data->filename, 'author' => $data->getUser->name , 'ad' => $data->author]) }}"
+                                href="{{ route('bayi.download',['file' => $data->filename, 'author' => $data->getUser->name , 'ad' => $data->author]) }}"
                                 class="btn btn-primary btn-sm">{{ __('Download') }}</a>
                         </td>
                     </tr>
