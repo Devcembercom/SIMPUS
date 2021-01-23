@@ -2,20 +2,20 @@
     <x-slot name="header">
         {{ __('LAPORAN KESGA GIZI KB IMUNISASI') }}
     </x-slot>
-   
+
     <div class="section-body">
         <div class="row">
           <div class="col-4 col-md-4 col-sm-4">
             <div class="card">
               <div class="card-header">
-                <h4>Idenitas Persalinan</h4>
+                <h4>Identitas Persalinan</h4>
               </div>
               <div class="card-body">
                 <div class="empty-state" data-height="200">
                   <div class="empty-state-icon">
                     <i class="fas fa-times"></i>
                   </div>
-                  <a href="{{ route('identitas-persalinan') }}" class="btn btn-primary mt-4">Tambah</a>
+                  <a href="{{ route('identitas-persalinan',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
                 </div>
               </div>
             </div>
@@ -30,7 +30,7 @@
                   <div class="empty-state-icon bg-primary">
                     <i class="fas fa-times"></i>
                   </div>
-                  <a href="{{ route('lap-pmt-bumil') }}" class="btn btn-primary mt-4">Tambah</a>
+                  <a href="{{ route('lap-pmt-bumil',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
                 </div>
               </div>
             </div>
@@ -45,7 +45,7 @@
                   <div class="empty-state-icon bg-primary">
                     <i class="fas fa-times"></i>
                   </div>
-                  <a href="{{ route('PwsKiaNagari') }}" class="btn btn-primary mt-4">Tambah</a>
+                  <a href="{{ route('PwsKiaNagari',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
                 </div>
               </div>
             </div>
@@ -60,7 +60,7 @@
                   <div class="empty-state-icon">
                     <i class="fas fa-times"></i>
                   </div>
-                  <a href="{{ route('identitasK1k4') }}" class="btn btn-primary mt-4">Tambah</a>
+                  <a href="{{ route('identitasK1k4',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
                 </div>
               </div>
             </div>
@@ -75,7 +75,7 @@
                   <div class="empty-state-icon bg-primary">
                     <i class="fas fa-times"></i>
                   </div>
-                  <a href="{{ route('lap-mp') }}" class="btn btn-primary mt-4">Tambah</a>
+                  <a href="{{ route('lap-mp',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
                 </div>
               </div>
             </div>
@@ -90,7 +90,7 @@
                   <div class="empty-state-icon">
                     <i class="fas fa-times"></i>
                   </div>
-                  <a href="{{ route('lap-anemia') }}" class="btn btn-primary mt-4">Tambah</a>
+                  <a href="{{ route('lap-anemia',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
                 </div>
               </div>
             </div>
@@ -105,7 +105,7 @@
                   <div class="empty-state-icon bg-primary">
                     <i class="fas fa-times"></i>
                   </div>
-                  <a href="{{ route('lap-bayi') }}" class="btn btn-primary mt-4">Tambah</a>
+                  <a href="{{ route('lap-bayi',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
                 </div>
               </div>
             </div>
@@ -120,7 +120,7 @@
                   <div class="empty-state-icon">
                     <i class="fas fa-times"></i>
                   </div>
-                  <a href="{{ route('lap-BGM') }}" class="btn btn-primary mt-4">Tambah</a>
+                  <a href="{{ route('lap-BGM',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
                 </div>
               </div>
             </div>
@@ -135,7 +135,7 @@
                   <div class="empty-state-icon bg-primary">
                     <i class="fas fa-times"></i>
                   </div>
-                  <a href="{{ route('lap-MTBS2') }}" class="btn btn-primary mt-4">Tambah</a>
+                  <a href="{{ route('lap-MTBS2',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
                 </div>
               </div>
             </div>
@@ -150,7 +150,7 @@
                   <div class="empty-state-icon">
                     <i class="fas fa-times"></i>
                   </div>
-                  <a href="{{ route('lap-MTBS') }}" class="btn btn-primary mt-4">Tambah</a>
+                  <a href="{{ route('lap-MTBS',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
                 </div>
               </div>
             </div>
@@ -165,7 +165,7 @@
                   <div class="empty-state-icon">
                     <i class="fas fa-times"></i>
                   </div>
-                  <a href="{{ route('lap-NIFAS') }}" class="btn btn-primary mt-4">Tambah</a>
+                  <a href="{{ route('lap-NIFAS',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
                 </div>
               </div>
             </div>
@@ -173,6 +173,6 @@
         </div>
       </div>
     @push('js')
-   
+
     @endpush
 </x-app-layout>

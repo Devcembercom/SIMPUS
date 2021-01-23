@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\KesgaGizi;
 
+use Carbon\Carbon;
+use App\Models\Files;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Models\IdentitasPersalinan;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use SebastianBergmann\GlobalState\Exception;
 use App\Http\Requests\KesgaGizi\IdentitasPersalinan\FormIdentitasPersalinan;
 
@@ -136,5 +139,54 @@ class IdentitasPersalinanController extends Controller
             session()->flash('message', $e);
         }
         return redirect()->route('identitas-persalinan');
+    }
+
+    public function uploadFile(Request $request)
+    {
+        $request->validate([
+            'fileExcel' => 'required|file|mimes:csv,xls,xlsx|max:2048'
+        ]);
+        if ($request->hasFile('fileExcel')) {
+            $file = $request->file('fileExcel');
+            $name = 'IdentitasPersalinan(' . auth()->user()->name . ')' . date('Y-m-d') . '.' . $file->getClientOriginalExtension();
+            $path = $file->storeAs('fileUpload/IdentitasPersalinan', $name);
+
+            Files::insert([
+                'filename' => $name,
+                'file_kategori' => 'IdentitasPersalinan',
+                'path' => $path,
+                'nagari' => $request->nagari,
+                'author' => auth()->user()->id,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+            session()->flash('type', 'success');
+            session()->flash('message', 'Data Berhasil diUpload');
+        }
+        return redirect()->route('identitas-persalinan',['nagari' => $request->nagari]);
+    }
+
+    public function fileIdentitasPersalinan()
+    {
+        if (auth()->user()->role == 'admin') {
+            $datas = Files::orderBy('created_at', 'desc')->paginate('10');
+        } else {
+            $datas = Files::where('author', auth()->user()->id)
+            ->where('file_kategori','IdentitasPersalinan')->orderBy('created_at', 'desc')->paginate('10');
+        }
+        return view('KesgaGizi.IdentitasPersalinan.listFile', compact('datas'));
+    }
+    public function fileDownload(Request $request)
+    {
+        if (auth()->user()->role == 'admin' || $request->ad == auth()->user()->id) {
+            try {
+                $url =  '/fileUpload/IdentitasPersalinan/' . $request->file;
+                return Storage::download($url);
+            } catch (Exception $e) {
+                session()->flash('type', 'error');
+                session()->flash('message', $e);
+                return back();
+            }
+        }
     }
 }

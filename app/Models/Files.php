@@ -23,4 +23,9 @@ class Files extends Model
     {
         return $this->belongsTo(User::class, 'author');
     }
+
+    public function getNagari()
+    {
+        return $this->belongsTo(Nagari::class, 'nagari');
+    }
 }

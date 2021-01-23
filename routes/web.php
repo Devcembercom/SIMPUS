@@ -15,7 +15,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('kesga-gizi/identitas-persalinan/{id}/edit', 'KesgaGizi\IdentitasPersalinanController@edit')->name('identitas-persalinan.edit');
     Route::patch('kesga-gizi/identitas-persalinan/{id}/update', 'KesgaGizi\IdentitasPersalinanController@update')->name('identitas-persalinan.update');
     Route::delete('kesga-gizi/identitas-persalinan/{id}', 'KesgaGizi\IdentitasPersalinanController@destroy')->name('identitas-persalinan.destroy');
-
+    Route::get('kesga-gizi/files-identitas-persalinan', 'KesgaGizi\IdentitasPersalinanController@fileIdentitasPersalinan')->name('list.fileIdentitasPersalinan');
+    Route::post('kesga-gizi/identitas-persalinan', 'KesgaGizi\IdentitasPersalinanController@uploadFile')->name('IdentitasPersalinan.uploadFile');
 
     Route::get('kesga-gizi/lap-pmt-bumil', 'KesgaGizi\PmtController@index')->name('lap-pmt-bumil');
     Route::get('kesga-gizi/lap-pmt-bumil/create', 'KesgaGizi\PmtController@create')->name('lap-pmt-bumil.create');
