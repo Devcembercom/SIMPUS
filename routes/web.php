@@ -30,7 +30,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('kesga-gizi/pmt-bumil/download', 'KesgaGizi\PmtController@fileDownload')->name('pmt.download');
 
     Route::get('kesga-gizi/lap-lb1', 'KesgaGizi\LB1Controller@index')->name('lap-lb1');
-
+    Route::get('nagari/kesga-gizi', 'KesgaGizi\Nagari@kesga')->name('lap-kesga-nagari');
+    Route::get('nagari/promkes', 'KesgaGizi\Nagari@promkes')->name('lap-promkes-nagari');
+    Route::get('nagari/lb1', 'KesgaGizi\Nagari@lb1')->name('lap-lb1-nagari');
 
     Route::get('kesga-gizi/list-lap-lb1', 'KesgaGizi\LB1Controller@listLb1')->name('list.lb1');
     Route::post('kesga-gizi/lap-lb1', 'KesgaGizi\LB1Controller@store')->name('lb1.uploadFile');

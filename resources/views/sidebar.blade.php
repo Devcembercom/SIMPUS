@@ -97,34 +97,17 @@
             <span>{{ __('Kesga Gizi KB Imunisasi') }}</span></a>
         <ul class="dropdown-menu">
 
-            <li class="{{ set_active('identitas-persalinan') }}"><a class="nav-link"
-                    href="{{ route('identitas-persalinan') }}">Identitas Persalinan</a></li>
-            <li class="{{ set_active('lap-pmt-bumil') }}"><a class="nav-link"
-                    href="{{ route('lap-pmt-bumil') }}">Laporan
-                    PMT BUMIL</a></li>
-            <li class="{{ set_active('PwsKiaNagari') }}"><a class="nav-link"
-                    href="{{ route('PwsKiaNagari') }}">{{ __('PWS KIA NAGARI') }}</a>
-            </li>
-            <li class="{{ set_active('identitasK1k4') }}"><a class="nav-link"
-                    href="{{ route('identitasK1k4') }}">{{ __('Identitas K1 & K4') }}</a>
-            </li>
-            <li class="{{ set_active('lap-mp') }}">
-                <a class="nav-link" href="{{ route('lap-mp') }}">{{ __('Laporan Balita Dapat MP')}}</a>
-            </li>
-            <li class="{{ set_active('lap-anemia') }}">
-                <a class="nav-link" href="{{ route('lap-anemia') }}">{{ __('Laporan Ibu Hamil Kek')}}</a>
-            </li>
-            <li class="{{ set_active('lap-bayi') }}">
-                <a class="nav-link" href="{{ route('lap-bayi') }}">{{ __('Formulir Rekap Bayi')}}</a>
-            </li>
+            <li class="{{ set_active('lap-kesga-nagari') }}"><a class="nav-link"
+                    href="{{ route('lap-kesga-nagari') }}">BT Tabik</a></li>
+            
         </ul>
     </li>
-    <li class="{{ set_active('promkes') }}">
-        <a href="{{ route('promkes') }}" class="nav-link"><i
+    <li class="{{ set_active('lap-promkes-nagari') }}">
+        <a href="{{ route('lap-promkes-nagari') }}" class="nav-link"><i
                 class="fas fa-book-open"></i><span>{{ __('Promkes Kesling') }}</span></a>
     </li>
-    <li class="{{ set_active('lap-lb1') }}">
-        <a href="{{ route('lap-lb1') }}" class="nav-link"><i
+    <li class="{{ set_active('lap-lb1-nagari') }}">
+        <a href="{{ route('lap-lb1-nagari') }}" class="nav-link"><i
                 class="fas fa-book"></i><span>{{ __('Laporan LB1') }}</span></a>
     </li>
 
