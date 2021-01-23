@@ -98,6 +98,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('kesga-gizi/NIFAS', 'KesgaGizi\NIFAS@uploadFile')->name('NIFAS.uploadFile');
     Route::get('kesga-gizi/NIFAS/download', 'KesgaGizi\NIFAS@fileDownload')->name('NIFAS.download');
 
+    Route::get('kesga-gizi/penyuluhan', 'KesgaGizi\penyuluhan@index')->name('lap-penyuluhan');
+    Route::get('kesga-gizi/kesgaz', 'KesgaGizi\Kesgaz@index')->name('lap-kesgaz');
+    Route::get('kesga-gizi/lansia', 'KesgaGizi\Lansia@index')->name('lap-lansia');
+    Route::get('kesga-gizi/p2p', 'KesgaGizi\P2P@index')->name('lap-p2p');
+    Route::get('kesga-gizi/penjaringan', 'KesgaGizi\Penjaringan@index')->name('lap-penjaringan');
+    Route::get('kesga-gizi/diare', 'KesgaGizi\Diare@index')->name('lap-diare');
+
 
     Route::get('settings', 'Settings\SettingsController@index')->name('settings.index');
     Route::post('settings/update', 'Settings\SettingsController@updateGeneral')->name('settings.updateGeneral');

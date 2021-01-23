@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        {{ __('LAPORAN BALITA DAPAT MP-ASI/ PMT TAHUN 2020') }}
+        {{ __('LAPORAN BALITA DAPAT MP-ASI/ PMT TAHUN 2021') }}
     </x-slot>
     <x-slot name="button">
         <a href="{{ route('fileMp',['nagari' => request()->nagari]) }}" class="float-right btn btn-primary"><i class="fa fa-list"></i>
