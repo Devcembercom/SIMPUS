@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\KesgaGizi;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class Perkesmas extends Controller
+class Jiwa extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class Perkesmas extends Controller
      */
     public function index()
     {
-        //
+        return view('KesgaGizi.Jiwa.index');
     }
 
     /**

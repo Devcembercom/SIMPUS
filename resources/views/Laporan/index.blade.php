@@ -260,7 +260,111 @@
               </div>
             </div>
           </div>
-          
+          <div class="col-4 col-md-4 col-sm-4">
+            <div class="card">
+              <div class="card-header">
+                <h4>Jiwa</h4>
+              </div>
+              <div class="card-body">
+                <div class="empty-state" data-height="200">
+                  <div class="empty-state-icon">
+                    <i class="fas fa-times"></i>
+                  </div>
+                  <a href="{{ route('lap-jiwa',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 col-md-4 col-sm-4">
+            <div class="card">
+              <div class="card-header">
+                <h4>LAPORAN IDENTITAS PASIEN</h4>
+              </div>
+              <div class="card-body">
+                <div class="empty-state" data-height="200">
+                  <div class="empty-state-icon">
+                    <i class="fas fa-times"></i>
+                  </div>
+                  <a href="{{ route('lap-pasien',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 col-md-4 col-sm-4">
+            <div class="card">
+              <div class="card-header">
+                <h4>LAPORAN KEMATIAN</h4>
+              </div>
+              <div class="card-body">
+                <div class="empty-state" data-height="200">
+                  <div class="empty-state-icon">
+                    <i class="fas fa-times"></i>
+                  </div>
+                  <a href="{{ route('lap-kematian',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 col-md-4 col-sm-4">
+            <div class="card">
+              <div class="card-header">
+                <h4>UKK</h4>
+              </div>
+              <div class="card-body">
+                <div class="empty-state" data-height="200">
+                  <div class="empty-state-icon">
+                    <i class="fas fa-times"></i>
+                  </div>
+                  <a href="{{ route('lap-ukk',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 col-md-4 col-sm-4">
+            <div class="card">
+              <div class="card-header">
+                <h4>Perkesmas</h4>
+              </div>
+              <div class="card-body">
+                <div class="empty-state" data-height="200">
+                  <div class="empty-state-icon">
+                    <i class="fas fa-times"></i>
+                  </div>
+                  <a href="{{ route('lap-perkesmas',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 col-md-4 col-sm-4">
+            <div class="card">
+              <div class="card-header">
+                <h4>LPLPO</h4>
+              </div>
+              <div class="card-body">
+                <div class="empty-state" data-height="200">
+                  <div class="empty-state-icon">
+                    <i class="fas fa-times"></i>
+                  </div>
+                  <a href="{{ route('lap-LPLPO',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 col-md-4 col-sm-4">
+            <div class="card">
+              <div class="card-header">
+                <h4>Kunjumgan</h4>
+              </div>
+              <div class="card-body">
+                <div class="empty-state" data-height="200">
+                  <div class="empty-state-icon">
+                    <i class="fas fa-times"></i>
+                  </div>
+                  <a href="{{ route('lap-kunjungan',['nagari' => request()->nagari]) }}" class="btn btn-primary mt-4">Tambah</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     @push('js')

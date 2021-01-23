@@ -108,6 +108,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('kesga-gizi/pasien', 'KesgaGizi\Pasien@index')->name('lap-pasien');
     Route::get('kesga-gizi/kematian', 'KesgaGizi\Kematian@index')->name('lap-kematian');
     Route::get('kesga-gizi/ukk', 'KesgaGizi\Ukk@index')->name('lap-ukk');
+    Route::get('kesga-gizi/perkesmas', 'KesgaGizi\perkesmas@index')->name('lap-perkesmas');
+    Route::get('kesga-gizi/LPLPO', 'KesgaGizi\LPLPO@index')->name('lap-LPLPO');
+    Route::get('kesga-gizi/kunjungan', 'KesgaGizi\Kunjungan@index')->name('lap-kunjungan');
 
 
     Route::get('settings', 'Settings\SettingsController@index')->name('settings.index');

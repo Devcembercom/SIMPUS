@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\KesgaGizi;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class Jiwa extends Controller
+class Kematian extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class Jiwa extends Controller
      */
     public function index()
     {
-        //
+        return view('KesgaGizi.Kematian.index');
     }
 
     /**

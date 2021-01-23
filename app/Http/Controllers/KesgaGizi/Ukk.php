@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\KesgaGizi;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class Ukk extends Controller
 {
@@ -13,7 +14,7 @@ class Ukk extends Controller
      */
     public function index()
     {
-        //
+        return view('KesgaGizi.Ukk.index');
     }
 
     /**
