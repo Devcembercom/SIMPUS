@@ -3,7 +3,7 @@
         {{ __('Penjaringan') }}
     </x-slot>
     <x-slot name="button">
-        <a href="{{ route('lap-bayi.create') }}" class="float-right btn btn-primary">Tambah Data</a>
+       
     </x-slot>
     <x-card>
 
