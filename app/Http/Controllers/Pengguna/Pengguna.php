@@ -49,13 +49,23 @@ class Pengguna extends Controller
      */
     public function store(Request $request)
     {
-        return User::create([
-            'name' => $request['name'],
-            'hp' => $request['hp'],
-            'role' => $request['role'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-        ]);
+        
+        try {
+            $data = User::create([
+                'name' => $request['name'],
+                'hp' => $request['hp'],
+                'role' => $request['role'],
+                
+                'email' => $request['email'],
+                'password' => Hash::make($request['password']),
+            ]);
+            session()->flash('type', 'success');
+            session()->flash('message', 'Data Berhasil Disimpan');
+        } catch (Exception $e) {
+            session()->flash('type', 'error');
+            session()->flash('message', $e);
+        }
+        return redirect()->route('pengguna');
     }
 
     /**

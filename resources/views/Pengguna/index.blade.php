@@ -28,7 +28,7 @@
                 <div class="col-12 col-sm-12 col-md-8">
                   <div class="tab-content no-padding" id="myTab2Content">
                     <div class="tab-pane fade show active" id="home4" role="tabpanel" aria-labelledby="home-tab4">
-                        <form method="POST" action="{{ route('register') }}" class="needs-validation"
+                        <form method="POST" action="{{ route('pengguna-tambah') }}" class="needs-validation"
                                       novalidate="">
                                       @csrf
                               <div class="card">
@@ -42,11 +42,11 @@
                                       <label class="form-label">Hak Akses</label>
                                       <div class="selectgroup selectgroup-pills">
                                           <label class="selectgroup-item">
-                                          <input type="radio" name="role" value="1" class="selectgroup-input" checked="">
+                                          <input type="radio" name="role" value="admin" class="selectgroup-input" checked="">
                                           <span class="selectgroup-button selectgroup-button-icon"><i class="fad fa-users-crown"></i></span>
                                         </label>
-                                                                <label class="selectgroup-item">
-                                          <input type="radio" name="role" value="2" class="selectgroup-input">
+                                          <label class="selectgroup-item">
+                                          <input type="radio" name="role" value="bidan" class="selectgroup-input">
                                           <span class="selectgroup-button selectgroup-button-icon"><i class="fad fa-users-medical"></i></span>
                                         </label>
                                       </div>
@@ -85,7 +85,7 @@
                                                 </div>
                                             </div>
                                             <input id="password" type="password" class="form-control pwstrength"
-                                                      data-indicator="pwindicator" name="password" max="8">
+                                                      data-indicator="pwindicator" name="password" maxlength="12">
                                         </div>
                                         <div id="pwindicator" class="pwindicator">
                                             <div class="bar"></div>
@@ -101,7 +101,7 @@
                                               </div>
                                           </div>
                                           <input id="password2" type="password" class="form-control pwstrength"
-                                                    data-indicator="pwindicator"  name="password_confirmation" max="8">
+                                                    data-indicator="pwindicator"  name="password_confirmation"  maxlength="12">
                                       </div>
                                       <div id="pwindicator" class="pwindicator">
                                           <div class="bar"></div>
