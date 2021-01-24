@@ -13,8 +13,8 @@
         </li>
 
         <li class="menu-header">{{ __('Pengguna') }}</li>
-        <li class="{{ set_active('register') }}">
-            <a href="{{ route('register') }}" class="nav-link"><i
+        <li class="{{ set_active('pengguna') }}">
+            <a href="{{ route('pengguna') }}" class="nav-link"><i
                     class="fas fa-user-plus"></i><span>{{ __('Tambah Pengguna') }}</span></a>
         </li>
         {{-- <li class="menu-header">{{ __('Laporan') }}</li>

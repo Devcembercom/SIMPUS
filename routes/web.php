@@ -4,10 +4,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
+
 Auth::routes(['register' => true, 'reset' => false]);
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', 'DashboardController@index')->name('dashboard');
+
+    Route::get('pengguna','Pengguna\Pengguna@index')->name('pengguna');
+    Route::post('pengguna/tambah','Pengguna\Pengguna@store')->name('pengguna-tambah');
 
     Route::get('kesga-gizi/identitas-persalinan', 'KesgaGizi\IdentitasPersalinanController@index')->name('identitas-persalinan');
     Route::get('kesga-gizi/identitas-persalinan/create', 'KesgaGizi\IdentitasPersalinanController@create')->name('identitas-persalinan.create');
