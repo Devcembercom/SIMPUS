@@ -15,7 +15,8 @@ class Pengguna extends Controller
     {
         return Validator::make($request, [
             'name' => ['required', 'string', 'max:255'],
-            'hp' => ['required', 'string', 'max:255'],
+            'hp' => ['required', 'string', 'max:16'],
+            'role' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'max:8', 'confirmed'],
         ]);
@@ -51,6 +52,7 @@ class Pengguna extends Controller
         return User::create([
             'name' => $request['name'],
             'hp' => $request['hp'],
+            'role' => $request['role'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
