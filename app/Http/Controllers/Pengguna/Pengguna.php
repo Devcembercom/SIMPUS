@@ -14,11 +14,11 @@ class Pengguna extends Controller
     protected function validator( Request $request)
     {
         return Validator::make($request, [
-            'name' => ['required', 'string', 'max:255'],
-            'hp' => ['required', 'string', 'max:16'],
-            'role' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'max:8', 'confirmed'],
+            'name' => [ 'string', 'max:255'],
+            'hp' => [ 'string', 'max:16'],
+            'role' => [ 'string', 'max:255'],
+            'email' => [ 'string', 'email', 'max:255', 'unique:users'],
+            'password' => [ 'string', 'max:8', 'confirmed'],
         ]);
     }
     /**
@@ -28,7 +28,9 @@ class Pengguna extends Controller
      */
     public function index()
     {
-        return view('Pengguna.index');
+        $datas = User::paginate(20);
+        
+        return view('Pengguna.index',compact('datas'));
     }
 
     /**
@@ -87,7 +89,7 @@ class Pengguna extends Controller
      */
     public function edit($id)
     {
-        //
+      
     }
 
     /**
@@ -97,9 +99,11 @@ class Pengguna extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $user = User::findOrFail($request->user_id);
+        $user->role = $request->role;
+        $user->save();
     }
 
     /**
@@ -110,6 +114,9 @@ class Pengguna extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::find($id)->delete();
+        session()->flash('type', 'success');
+        session()->flash('message', 'Data Berhasil dihapus');
+        return redirect()->back();
     }
 }

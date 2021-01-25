@@ -12,6 +12,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('pengguna','Pengguna\Pengguna@index')->name('pengguna');
     Route::post('pengguna/tambah','Pengguna\Pengguna@store')->name('pengguna-tambah');
+    Route::get('pengguna/update', 'Pengguna\Pengguna@update')->name('pengguna-update');
+    Route::get('pengguna/delete/{id}', 'Pengguna\Pengguna@destroy')->name('pengguna-delete');
 
     Route::get('kesga-gizi/identitas-persalinan', 'KesgaGizi\IdentitasPersalinanController@index')->name('identitas-persalinan');
     Route::get('kesga-gizi/identitas-persalinan/create', 'KesgaGizi\IdentitasPersalinanController@create')->name('identitas-persalinan.create');
