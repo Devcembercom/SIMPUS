@@ -16,7 +16,7 @@ class DajorController extends Controller
     public function index()
     {
         
-        $datas = Dajor::paginate(20);
+        $datas = Dajor::paginate(40);
         return view('Menu_Dajor.index',compact('datas'));
     }
     public function form()

@@ -73,13 +73,18 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('data-identitas-k4/k1k4', 'KesgaGizi\IdentitasK1Controller@uploadFile')->name('k1k4.uploadFile');
     Route::get('data-identitas-k4/k1k4/download', 'KesgaGizi\IdentitasK1Controller@fileDownload')->name('k1k4.download');
 
-    Route::get('laporan-promkes-kesling-pis-pk-lansia', 'Promkes\PromkesController@index')->name('promkes');
+    Route::get('laporan-promkes-kesling', 'Promkes\PromkesController@index')->name('promkes');
 
     Route::get('promkes-kesling-pis-pk-lansia/list-promkes', 'Promkes\PromkesController@listPromkes')->name('list.promkes');
     Route::post('promkes-kesling-pis-pk-lansia/lap-promkes', 'Promkes\PromkesController@store')->name('promkes.uploadFile');
     Route::get('promkes-kesling-pis-pk-lansia/lap-promkes/download', 'Promkes\PromkesController@fileDownload')->name('promkes.download');
 
-    Route::get('kesga-gizi/chart/kesga', 'chart@kesga')->name('chart-kesga');
+    Route::get('kesga-gizi/kesga', 'chart@kesga')->name('nagari-kesga');
+    Route::get('puskesmas/kesga', 'chart@kesga_puskesmas')->name('puskesmas-kesga');
+    Route::get('puskesmas/promkes', 'chart@promkes_puskesmas')->name('puskesmas-promkes');
+
+
+    
     Route::get('kesga-gizi/chart/promkes', 'chart@promkes')->name('chart-promkes');
     Route::get('kesga-gizi/chart/lb1', 'chart@lb1')->name('chart-lb1');
 

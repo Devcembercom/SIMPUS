@@ -57,7 +57,7 @@
         <li class="menu-header">{{ __('Jorong') }}</li>
         <li class="dropdown {{ set_active(['lap-jorong','identitas-persalinan','lap-pmt-bumil','identitasK1k4']) }}">
             <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                <span>{{ __('Kesga Gizi KB Imunisasi') }}</span></a>
+                <span>{{ __('LAPORAN JORONG ATAU POSYANDU') }}</span></a>
 
             <ul class="dropdown-menu">
 
@@ -69,66 +69,27 @@
         @endforeach
     </ul>
     </li>
-    <li class="dropdown {{ set_active('promkes') }}">
-        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-book-open"></i>
-            <span>{{ __('promkes Kesling') }}</span></a>
 
-        <ul class="dropdown-menu">
-
-            @foreach ($nagari as $ngr)
-            <li class="@if(request()->nagari == $ngr->id) active @endif">
-                <a class="nav-link" href="{{ route('promkes',['nagari' => $ngr->id]) }}">{{ $ngr->nama }}</a>
-            </li>
-            @endforeach
-        </ul>
-    </li>
-
-    <li class="dropdown {{ set_active('lap-lb1') }}">
-        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-book"></i>
-            <span>{{ __('Laporan LB1') }}</span></a>
-
-        <ul class="dropdown-menu">
-
-            @foreach ($nagari as $ngr)
-            <li class="@if(request()->nagari == $ngr->id) active @endif">
-                <a class="nav-link" href="{{ route('lap-lb1',['nagari' => $ngr->id]) }}">{{ $ngr->nama }}</a>
-            </li>
-            @endforeach
-        </ul>
-    </li>
+   
 
     <li class="menu-header">{{ __('Nagari') }}</li>
-    <li class="dropdown {{ set_active(['identitas-persalinan','lap-pmt-bumil','identitasK1k4']) }}">
-        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-            <span>{{ __('Kesga Gizi KB Imunisasi') }}</span></a>
-        <ul class="dropdown-menu">
-
-            <li class="{{ set_active('lap-kesga-nagari') }}"><a class="nav-link"
-                    href="{{ route('lap-kesga-nagari') }}">BT Tabik</a></li>
-            
-        </ul>
+    
+    <li class="{{ set_active('nagari-kesga') }}">
+        <a href="{{ route('nagari-kesga') }}" class="nav-link"><i
+                class="fas fa-book-open"></i><span>{{ __('Kesga Gizi KB Imunisasi') }}</span></a>
     </li>
-    <li class="{{ set_active('lap-promkes-nagari') }}">
-        <a href="{{ route('lap-promkes-nagari') }}" class="nav-link"><i
+    <li class="{{ set_active('promkes') }}">
+        <a href="{{ route('promkes') }}" class="nav-link"><i
                 class="fas fa-book-open"></i><span>{{ __('Promkes Kesling') }}</span></a>
     </li>
-    <li class="{{ set_active('lap-lb1-nagari') }}">
-        <a href="{{ route('lap-lb1-nagari') }}" class="nav-link"><i
-                class="fas fa-book"></i><span>{{ __('Laporan LB1') }}</span></a>
-    </li>
-
     <li class="menu-header">{{ __('Puskesmas') }}</li>
-    <li class="{{ set_active('chart-kesga') }}">
-        <a href="{{ route('chart-kesga') }}" class="nav-link"><i
+    <li class="{{ set_active('puskesmas-kesga') }}">
+        <a href="{{ route('puskesmas-kesga') }}" class="nav-link"><i
                 class="fas fa-columns"></i><span>{{ __('Kesga Gizi KB Imunisasi') }}</span></a>
     </li>
-    <li class="{{ set_active('chart-promkes') }}">
-        <a href="{{ route('chart-promkes') }}" class="nav-link"><i
+    <li class="{{ set_active('puskesmas-promkes') }}">
+        <a href="{{ route('puskesmas-promkes') }}" class="nav-link"><i
                 class="fas fa-book-open"></i><span>{{ __('Promkes Kesling') }}</span></a>
-    </li>
-    <li class="{{ set_active('chart-lb1') }}">
-        <a href="{{ route('chart-lb1') }}" class="nav-link"><i
-                class="fas fa-book"></i><span>{{ __('Laporan LB1') }}</span></a>
     </li>
     </ul>
     <div class="p-3 mt-4 mb-4 hide-sidebar-mini">

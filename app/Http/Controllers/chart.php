@@ -13,16 +13,21 @@ class chart extends Controller
      */
     public function kesga()
     {
-        return view('chart.kesga');
+        return view('Nagari.kesga');
+    }
+    public function kesga_puskesmas()
+    {
+        return view('Puskesmas.kesga');
     }
     public function promkes()
     {
-        return view('chart.promkes');
+        return view('Nagari.promkes');
     }
-    public function lb1()
+    public function promkes_puskesmas()
     {
-        return view('chart.lb1');
+        return view('Puskesmas.promkes');
     }
+    
 
     /**
      * Show the form for creating a new resource.
