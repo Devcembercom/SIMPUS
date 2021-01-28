@@ -1,10 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
-        {{ __('Dashboard') }}
-    </x-slot>
-    <x-card>
-        <form method="POST" action="{{ route('menu.dajor.tambah') }}" class="needs-validation"
-        novalidate="">
+<x-card>
+    <form method="POST" action="{{ route('menu.dajor.tambah') }}" class="needs-validation" novalidate="">
         @csrf
         <div class="card-body">
             <div class="form-group">
@@ -14,9 +9,7 @@
             </div>
         </div>
         <div class="card-footer text-right">
-        <button class="btn btn-primary">Submit</button>
+            <button class="btn btn-primary">Submit</button>
         </div>
-</form>
-    </x-card>
-
-</x-app-layout>
+    </form>
+</x-card>
