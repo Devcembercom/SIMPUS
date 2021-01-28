@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Dajor;
+use App\menus;
 use Illuminate\Http\Request;
 
 class DajorController extends Controller
@@ -22,9 +23,9 @@ class DajorController extends Controller
     {
         return view('Menu_Dajor.input');
     }
-    public function show($id)
+    public function show($jorong_id)
     {
-       $data = menus::findOrFail($id);
+       $data = menus::where('jorong_id',$jorong_id)->get();
         return view('Menu_Laporan.index',compact('data'));
     }
 

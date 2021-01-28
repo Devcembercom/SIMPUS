@@ -19,8 +19,9 @@
                             <div class="empty-state" data-height="200">
                             <div class="empty-state-icon">
                                 <i class="fad fa-home-alt"></i>
-                            </div>{{dd($dat->menus)}}
-                                <a href="menu/dajor-view/{{$dat->menus->id}}" class="btn btn-primary mt-4">Buka</a>
+                            </div>
+                            
+                                <a href="menu/dajor-view/{{$dat->id}}" class="btn btn-primary mt-4">Buka</a>
                             </div>
                         </div>
                     </div>

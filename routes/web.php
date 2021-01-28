@@ -94,7 +94,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('menu-dajor', 'DajorController@index')->name('menu.dajor');
     Route::get('menu/dajor-menu-form', 'DajorController@form')->name('menu.dajor.form');
     Route::post('menu/tambah-dajor-menu', 'DajorController@store')->name('menu.dajor.tambah');
-    Route::get('menu/dajor-view/{id}', 'DajorController@show')->name('menu.view');
+    Route::get('menu/dajor-view/{jorong_id}', 'DajorController@show')->name('menu.view');
 
     Route::get('kesga-gizi/BGM', 'KesgaGizi\BGM@index')->name('lap-BGM');
     Route::get('kesga-gizi/BGM/files-bgm', 'KesgaGizi\BGM@fileBgm')->name('fileBgm');

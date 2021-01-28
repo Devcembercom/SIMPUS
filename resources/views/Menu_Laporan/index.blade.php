@@ -8,7 +8,7 @@
     </x-slot>
     <div class="section-body">
         <div class="row">
-            @forelse ($datas as $data => $dat)
+            @forelse ($data as $data => $dat)
                 <div class="col-4 col-md-4 col-sm-4">
                     <div class="card">
                         <div class="card-header">
@@ -20,7 +20,7 @@
                             <div class="empty-state-icon">
                                 <i class="fad fa-book-user"></i>
                             </div>
-                                <a href="menu/laporan-view/{{$dat->id}}" class="btn btn-primary mt-4">Isi Data</a>
+                                <a href="{{url('menu/laporan-view/'.$dat->id)}}" class="btn btn-primary mt-4">Isi Data</a>
                             </div>
                         </div>
                     </div>

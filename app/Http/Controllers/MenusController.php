@@ -16,8 +16,8 @@ class MenusController extends Controller
     public function index()
     {
         
-        $datas = menus::paginate(20);
-        return view('Menu_Laporan.index',compact('datas'));
+        // $datas = menus::all();
+        // return view('Menu_Laporan.index',compact('datas'));
     }
     public function form()
     {
@@ -27,6 +27,7 @@ class MenusController extends Controller
     public function show($id)
     {
        $data = menus::findOrFail($id);
+       
         return view('Menu_Laporan.laporan_view',compact('data'));
     }
     /**
