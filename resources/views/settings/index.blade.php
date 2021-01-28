@@ -15,6 +15,8 @@
                             class="nav-link @if(request()->tab == 'general') active @endif">{{ __('General') }}</a></li>
                     <li class="nav-item"><a href="{{ route('settings.index',['tab' => 'nagari']) }}"
                             class="nav-link @if(request()->tab == 'nagari') active @endif">{{ __('Nagari') }}</a></li>
+                    <li class="nav-item"><a href="{{ route('settings.index',['tab' => 'dajor']) }}"
+                            class="nav-link @if(request()->tab == 'dajor') active @endif">{{ __('Dajor') }}</a></li>
                 </ul>
 
             </x-card>
@@ -24,6 +26,8 @@
             @include('settings.form.general')
             @elseif(request()->tab == 'nagari')
             @include('settings.form.nagari')
+            @elseif(request()->tab == 'dajor')
+            @include('Menu_Dajor.input')
             @endif
         </div>
     </div>
