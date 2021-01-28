@@ -33,7 +33,7 @@
 
         <div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item"
-                src="https://docs.google.com/spreadsheets/d/1NwtaO0CvKIAHsc2tzivxTccL-kHMdenPyutua2jZmuA/edit?usp=sharing&amp;headers=false"></iframe>
+                src="https://docs.google.com/spreadsheets/d/1O_todBRzzsBUHCY26LA5aGt8cQV1AzKV82mEzx2d8Bg/edit#gid=1720242758?usp=sharing&amp;headers=false"></iframe>
         </div>
     </x-card>
     @push('js')

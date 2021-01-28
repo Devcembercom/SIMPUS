@@ -84,7 +84,17 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('kesga-gizi/chart/lb1', 'chart@lb1')->name('chart-lb1');
 
     Route::get('kesga-gizi/jorong', 'KesgaGizi\jorong@index')->name('lap-jorong');
+    Route::get('nagari/menu', 'Nagari_Menu@index')->name('menu-nagari');
 
+    Route::get('menu-laporan', 'MenusController@index')->name('menu');
+    Route::get('menu/laporan-menu-form', 'MenusController@form')->name('menu.form');
+    Route::post('menu/tambah-menu', 'MenusController@store')->name('menu.tambah');
+    Route::get('menu/laporan-view/{id}', 'MenusController@show')->name('menu.view');
+
+    Route::get('menu-dajor', 'DajorController@index')->name('menu.dajor');
+    Route::get('menu/dajor-menu-form', 'DajorController@form')->name('menu.dajor.form');
+    Route::post('menu/tambah-dajor-menu', 'DajorController@store')->name('menu.dajor.tambah');
+    Route::get('menu/dajor-view/{id}', 'DajorController@show')->name('menu.view');
 
     Route::get('kesga-gizi/BGM', 'KesgaGizi\BGM@index')->name('lap-BGM');
     Route::get('kesga-gizi/BGM/files-bgm', 'KesgaGizi\BGM@fileBgm')->name('fileBgm');

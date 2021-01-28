@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        {{ __('Dashboard') }}
+        {{ __('Jorong Baru') }}
     </x-slot>
     <x-card>
         <a href="">Hallo</a>

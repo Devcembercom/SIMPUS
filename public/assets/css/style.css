@@ -1142,7 +1142,7 @@ h6 .badge {
     box-shadow: none !important;
     outline: none; }
 
-.btn.btn-icon-split i, .dropdown-item.has-icon i {
+.btn.btn-icon-split i, .-item.has-icon i {
   text-align: center;
   width: 15px;
   font-size: 15px;
