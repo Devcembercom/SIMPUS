@@ -55,28 +55,17 @@
         </li> --}}
 
         <li class="menu-header">{{ __('Jorong') }}</li>
-        <li class="dropdown {{ set_active(['lap-jorong','identitas-persalinan','lap-pmt-bumil','identitasK1k4']) }}">
-            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
-                <span>{{ __('LAPORAN JORONG ATAU POSYANDU') }}</span></a>
 
-            <ul class="dropdown-menu">
-
-
-        @foreach ($nagari as $ngr)
-        <li class="@if(request()->nagari == $ngr->id) active @endif">
-            <a class="nav-link" href="{{ route('lap-jorong',['nagari' => $ngr->id]) }}">{{ $ngr->nama }}</a>
+        <li class="{{ set_active('menu.dajor') }}">
+            <a href="{{ route('menu.dajor') }}" class="nav-link"><i
+                    class="fas fa-book-open"></i><span>{{ __('LAPORAN JORONG') }}</span></a>
         </li>
-        @endforeach
-    </ul>
-    </li>
-
-   
-
+        
     <li class="menu-header">{{ __('Nagari') }}</li>
     
     <li class="{{ set_active('nagari-kesga') }}">
         <a href="{{ route('nagari-kesga') }}" class="nav-link"><i
-                class="fas fa-book-open"></i><span>{{ __('Kesga Gizi KB Imunisasi') }}</span></a>
+                class="fas fa-book-columns"></i><span>{{ __('Kesga Gizi KB Imunisasi') }}</span></a>
     </li>
     <li class="{{ set_active('promkes') }}">
         <a href="{{ route('promkes') }}" class="nav-link"><i
